@@ -1,0 +1,19 @@
+seed: 42
+
+data:
+  raw_dir: "data/raw"
+  file_glob: "*.csv"
+  sep: ","
+  encoding: "utf-8"
+  site_id_source: "filename"
+  label_col: "label"
+
+targets:
+  date_positive_labels:
+    - "Date"
+    - "DateTime"
+    - "StartDate"
+    - "EndDate"
+
+eval:
+  ks: [1, 3, 5, 10]
