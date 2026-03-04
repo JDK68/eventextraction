@@ -9,8 +9,13 @@ import numpy as np
 import pandas as pd
 import lightgbm as lgb
 
-from dateclf.data import load_config, load_raw_merged, add_is_date_label, build_feature_matrix_for_date
-from dateclf.split import loso_folds_date
+from dateclf.data import (
+    load_config,
+    load_raw_merged,
+    add_is_event_content_label,
+    build_feature_matrix_for_event
+)
+from dateclf.split import loso_folds_event
 from dateclf.sampling import undersample_other
 from dateclf.metrics import precision_recall_at_k_per_page
 
@@ -21,21 +26,24 @@ class FoldResult:
     metrics_at_k: Dict[int, Dict[str, float]]
 
 
-def train_date_loso(config_path: str = "config.yaml") -> Dict[str, Any]:
+def train_event_loso(config_path: str = "config.yaml") -> Dict[str, Any]:
     cfg = load_config(config_path)
     ks: List[int] = cfg["eval"]["ks"]
 
     df = load_raw_merged(cfg)
-    df = add_is_date_label(df, cfg)
 
-    X, y, groups = build_feature_matrix_for_date(df)
+    # create event detector label
+    df = add_is_event_content_label(df)
+
+    # build feature matrix
+    X, y, groups = build_feature_matrix_for_event(df)
 
     # Prepare LightGBM categorical features
     cat_features = [c for c in ["tag", "parent_tag"] if c in X.columns]
     for c in cat_features:
         X[c] = X[c].astype("category")
 
-    folds = list(loso_folds_date(df))
+    folds = list(loso_folds_event(df))
 
     all_fold_results: List[FoldResult] = []
 
@@ -105,14 +113,14 @@ def train_date_loso(config_path: str = "config.yaml") -> Dict[str, Any]:
         test_scores = model.predict(X_test)
 
         # Build eval DF with page_id
-        df_test = df.loc[test_idx, ["text_context", "is_Date"]].copy()
+        df_test = df.loc[test_idx, ["text_context", "is_event_content"]].copy()
         df_test = df_test.rename(columns={"text_context": "page_id"})
         df_test["score"] = test_scores
 
         metrics_at_k = precision_recall_at_k_per_page(
             df_test,
             score_col="score",
-            y_col="is_Date",
+            y_col="is_event_content",
             page_col="page_id",
             ks=ks,
             ignore_pages_with_no_positives_for_recall=True,
@@ -128,7 +136,7 @@ def train_date_loso(config_path: str = "config.yaml") -> Dict[str, Any]:
                   f"(pages P:{m['num_pages_precision']} R:{m['num_pages_recall']})")
 
         # Save artifacts
-        out_dir = Path("runs/date") / fold.holdout_site
+        out_dir = Path("runs/event") / fold.holdout_site
         out_dir.mkdir(parents=True, exist_ok=True)
 
         model.save_model(str(out_dir / "model.txt"))
@@ -136,7 +144,7 @@ def train_date_loso(config_path: str = "config.yaml") -> Dict[str, Any]:
             json.dumps({"holdout_site": fold.holdout_site, "metrics_at_k": metrics_at_k}, indent=2),
             encoding="utf-8",
         )
-        df_test.to_parquet(out_dir / "preds.parquet", index=False)
+        df_test.to_csv(out_dir / "preds.csv", index=False)
         fi.to_csv(out_dir / "feature_importance.csv", index=False)
    
     # --- Aggregate feature importance across folds ---
@@ -147,7 +155,7 @@ def train_date_loso(config_path: str = "config.yaml") -> Dict[str, Any]:
         .sort_values("importance_gain", ascending=False)
         .reset_index()
     )
-    fi_mean.to_csv("runs/date/feature_importance_mean.csv", index=False)
+    fi_mean.to_csv("runs/event/feature_importance_mean.csv", index=False)
     print("\n=== Mean Feature Importance across folds (Top 15, gain) ===")
     print(fi_mean.head(15).to_string(index=False))
 
@@ -163,7 +171,13 @@ def train_date_loso(config_path: str = "config.yaml") -> Dict[str, Any]:
         "folds": [{"site": fr.site, "metrics_at_k": fr.metrics_at_k} for fr in all_fold_results],
         "macro_mean": agg,
     }
-    Path("runs/date").mkdir(parents=True, exist_ok=True)
-    Path("runs/date/summary.json").write_text(json.dumps(summary, indent=2), encoding="utf-8")
+    Path("runs/event").mkdir(parents=True, exist_ok=True)
+    Path("runs/event/summary.json").write_text(json.dumps(summary, indent=2), encoding="utf-8")
 
     return summary
+
+if __name__ == "__main__":
+    summary = train_event_loso("../config.yaml")
+
+    print("\nTraining finished.")
+    print(summary["macro_mean"])

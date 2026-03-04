@@ -1,7 +1,7 @@
 seed: 42
 
 data:
-  raw_dir: "data/raw"
+  raw_dir: ../data/raw
   file_glob: "*.csv"
   sep: ","
   encoding: "utf-8"

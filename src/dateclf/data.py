@@ -106,3 +106,57 @@ def build_feature_matrix_for_date(df: pd.DataFrame) -> tuple[pd.DataFrame, pd.Se
             X[c] = X[c].astype("category")
 
     return X, y, groups
+
+def add_is_event_content_label(df: pd.DataFrame) -> pd.DataFrame:
+
+    EVENT_LABELS = [
+        "Date",
+        "DateTime",
+        "StartTime",
+        "EndTime",
+        "StartEndTime",
+        "Time",
+        "TimeLocation",
+        "Location",
+        "Name",
+        "NameLocation",
+        "Description"
+    ]
+
+    df = df.copy()
+
+    labels = df["label"].astype(str)
+
+    df["is_event_content"] = labels.isin(EVENT_LABELS).astype(int)
+
+    return df
+
+def build_feature_matrix_for_event(df: pd.DataFrame):
+    """
+    Build X, y, groups for Event Detector.
+    """
+
+    exclude_cols = {
+        "label",
+        "event_id",
+        "is_event_content",
+        "site_id",
+        "attributes",
+        "text_context",
+        "link",
+    }
+
+    cols_to_drop = [c for c in exclude_cols if c in df.columns]
+
+    X = df.drop(columns=cols_to_drop)
+
+    y = df["is_event_content"].astype(int)
+
+    groups = df["site_id"].astype(str)
+
+    # categorical features
+    for c in ["tag", "parent_tag"]:
+        if c in X.columns:
+            X[c] = X[c].astype("category")
+
+    return X, y, groups

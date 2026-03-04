@@ -11,17 +11,29 @@ class Fold:
     test_idx: pd.Index
 
 
-def loso_folds_date(df: pd.DataFrame, site_col: str = "site_id", y_col: str = "is_Date") -> Iterator[Fold]:
+def loso_folds_event(
+    df: pd.DataFrame,
+    site_col: str = "site_id",
+    y_col: str = "is_event_content"
+) -> Iterator[Fold]:
     """
-    LOSO folds, excluding sites that have zero positives in the test site.
-    This prevents undefined Recall@K and misleading evaluation.
+    Leave-One-Site-Out (LOSO) folds for event detection.
+
+    We exclude sites that contain zero positive event nodes in the test site
+    to avoid undefined Recall@K and misleading evaluation.
     """
-    # sites with at least 1 positive
+
+    # Count positives per site
     pos_by_site = df.groupby(site_col)[y_col].sum()
-    eligible_sites: List[str] = sorted(pos_by_site[pos_by_site > 0].index.astype(str).tolist())
+
+    # Only keep sites that have at least one positive event node
+    eligible_sites: List[str] = sorted(
+        pos_by_site[pos_by_site > 0].index.astype(str).tolist()
+    )
 
     for s in eligible_sites:
         test_mask = df[site_col].astype(str) == str(s)
+
         yield Fold(
             holdout_site=str(s),
             train_idx=df.index[~test_mask],
