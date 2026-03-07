@@ -136,19 +136,43 @@ def build_feature_matrix_for_event(df: pd.DataFrame):
     Build X, y, groups for Event Detector.
     """
 
-    exclude_cols = {
-        "label",
-        "event_id",
-        "is_event_content",
-        "site_id",
-        "attributes",
-        "text_context",
-        "link",
-    }
+    feature_cols = [
+        # structure légère
+        "depth",
+        "tag",
+        "parent_tag",
 
-    cols_to_drop = [c for c in exclude_cols if c in df.columns]
+        # text statistics
+        "text_length",
+        "word_count",
+        "letter_ratio",
+        "digit_ratio",
+        "whitespace_ratio",
 
-    X = df.drop(columns=cols_to_drop)
+        # semantic hints
+        "contains_date",
+        "contains_time",
+        "starts_with_digit",
+        "ends_with_digit",
+
+        # attribute hints
+        "attribute_count",
+        "has_class",
+        "has_id",
+
+        # keyword features
+        "attr_has_word_date",
+        "attr_has_word_time",
+        "attr_has_word_location",
+        "text_has_word_date",
+        "text_word_time",
+        "text_word_location",
+    ]
+
+    # garder uniquement les features qui existent dans le dataframe
+    feature_cols = [c for c in feature_cols if c in df.columns]
+
+    X = df[feature_cols].copy()
 
     y = df["is_event_content"].astype(int)
 
