@@ -12,8 +12,8 @@ import lightgbm as lgb
 from dateclf.data import (
     load_config,
     load_raw_merged,
-    add_is_event_content_label,
-    build_feature_matrix_for_event,
+    add_is_event_anchor_label,
+    build_feature_matrix_for_anchor,
 )
 from dateclf.split import loso_folds_event
 from dateclf.sampling import undersample_negatives
@@ -70,25 +70,24 @@ def _save_fold_artifacts(
     fi.to_csv(out_dir / "feature_importance.csv", index=False)
 
 
-def train_event_content_loso(config_path: str = "config.yaml") -> Dict[str, Any]:
+def train_event_anchor_loso(config_path: str = "config.yaml") -> Dict[str, Any]:
     cfg = load_config(config_path)
     ks: List[int] = cfg["eval"]["ks"]
     keep_neg_ratio = cfg.get("sampling", {}).get("keep_neg_ratio", 0.15)
     num_boost_round = cfg.get("model", {}).get("num_boost_round", 400)
 
     df = load_raw_merged(cfg)
-
+    
     from .features import add_dom_neighbor_features
 
     df = add_dom_neighbor_features(df)
-    
-    df = add_is_event_content_label(df, cfg)
 
-    X, y, groups = build_feature_matrix_for_event(df)
+    df = add_is_event_anchor_label(df, cfg)
+    X, y, groups = build_feature_matrix_for_anchor(df)
 
     cat_features = [c for c in ["tag", "parent_tag"] if c in X.columns]
 
-    folds = list(loso_folds_event(df))
+    folds = list(loso_folds_event(df, y_col="is_event_anchor"))
 
     all_fold_results: List[FoldResult] = []
     fi_all: List[pd.DataFrame] = []
@@ -142,11 +141,11 @@ def train_event_content_loso(config_path: str = "config.yaml") -> Dict[str, Any]
 
         test_scores = model.predict(X_test)
 
-        df_test = df.loc[test_idx, ["text_context", "label", "event_id", "is_event_content"]].copy()
+        df_test = df.loc[test_idx, ["text_context", "label", "event_id", "is_event_anchor"]].copy()
         df_test["score"] = test_scores
 
         metrics_at_k = precision_recall_at_k(
-            y_true=df_test["is_event_content"],
+            y_true=df_test["is_event_anchor"],
             scores=df_test["score"],
             ks=ks,
         )
@@ -163,7 +162,7 @@ def train_event_content_loso(config_path: str = "config.yaml") -> Dict[str, Any]
                 f"(top_k:{m['num_items']} total_pos:{m['num_positives_total']})"
             )
 
-        out_dir = Path("runs/event") / fold.holdout_site
+        out_dir = Path("runs/anchor") / fold.holdout_site
         _save_fold_artifacts(
             out_dir=out_dir,
             holdout_site=fold.holdout_site,
@@ -181,8 +180,8 @@ def train_event_content_loso(config_path: str = "config.yaml") -> Dict[str, Any]
         .reset_index()
     )
 
-    Path("runs/event").mkdir(parents=True, exist_ok=True)
-    fi_mean.to_csv("runs/event/feature_importance_mean.csv", index=False)
+    Path("runs/anchor").mkdir(parents=True, exist_ok=True)
+    fi_mean.to_csv("runs/anchor/feature_importance_mean.csv", index=False)
 
     print("\n=== Mean Feature Importance across folds (Top 15, gain) ===")
     print(fi_mean.head(15).to_string(index=False))
@@ -205,7 +204,7 @@ def train_event_content_loso(config_path: str = "config.yaml") -> Dict[str, Any]
         "macro_mean": agg,
     }
 
-    Path("runs/event/summary.json").write_text(
+    Path("runs/anchor/summary.json").write_text(
         json.dumps(summary, indent=2),
         encoding="utf-8",
     )
@@ -214,6 +213,6 @@ def train_event_content_loso(config_path: str = "config.yaml") -> Dict[str, Any]
 
 
 if __name__ == "__main__":
-    summary = train_event_content_loso("../config.yaml")
+    summary = train_event_anchor_loso("../config.yaml")
     print("\nTraining finished.")
     print(summary["macro_mean"])
