@@ -50,3 +50,46 @@ def precision_recall_at_k(
         }
 
     return out
+
+def event_level_metrics_at_k(
+    df: pd.DataFrame,
+    score_col: str,
+    y_col: str,
+    event_id_col: str,
+    ks: list[int],
+) -> dict[int, dict[str, float]]:
+    out = {}
+
+    ranked = df.sort_values(score_col, ascending=False).copy()
+    events_df = df[df[event_id_col].notna()].copy()
+
+    grouped_all = events_df.groupby(event_id_col)
+
+    for k in ks:
+        topk = ranked.head(k).copy()
+        topk_events = topk[topk[event_id_col].notna()].copy()
+        grouped_topk = topk_events.groupby(event_id_col) if len(topk_events) > 0 else None
+
+        recalls = []
+        detected = []
+
+        for event_id, group in grouped_all:
+            total_pos = int(group[y_col].sum())
+            if total_pos == 0:
+                continue
+
+            captured = 0
+            if grouped_topk is not None and event_id in grouped_topk.groups:
+                top_group = grouped_topk.get_group(event_id)
+                captured = int(top_group[y_col].sum())
+
+            recalls.append(captured / total_pos)
+            detected.append(1.0 if captured > 0 else 0.0)
+
+        out[k] = {
+            "event_detection_rate": float(sum(detected) / len(detected)) if detected else 0.0,
+            "mean_event_recall": float(sum(recalls) / len(recalls)) if recalls else 0.0,
+            "num_events": int(len(recalls)),
+        }
+
+    return out

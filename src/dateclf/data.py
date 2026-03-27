@@ -68,6 +68,50 @@ EVENT_FEATURE_COLUMNS = [
     "siblings_with_time",
     "siblings_with_text",
     "num_siblings",
+
+    "parent_contains_date_count",
+    "parent_contains_time_count",
+    "parent_long_text_count",
+    "parent_avg_text_length",
+    "sibling_position",
+    "sibling_position_norm",
+    "is_first_sibling",
+    "is_last_sibling",
+    "prev_text_length",
+    "next_text_length",
+    "prev_contains_date",
+    "next_contains_date",
+    "prev_contains_time",
+    "next_contains_time",
+    "same_parent_as_prev",
+    "same_parent_as_next",
+    "rendering_gap_prev",
+    "rendering_gap_next",
+
+    # NER semantic hints
+    "has_ner_date",
+    "has_ner_time",
+    "has_ner_gpe",
+    "has_ner_loc",
+    "has_ner_org",
+    "has_any_ner",
+    "ner_count",
+    "has_ner_location_like",
+    "has_ner_datetime_like",
+
+    "parent_date_count",
+    "parent_time_count",
+    "parent_text_rich_count",
+    "parent_event_density",
+
+    "is_nav_like",
+    "is_contact_like",
+    "has_event_keyword",
+    "looks_like_location",
+    "local_support_count",
+    "local_anchor_count",
+    "is_meta_noise",
+    "looks_like_fragment",
 ]
 
 
@@ -218,6 +262,51 @@ def build_feature_matrix_for_anchor(
 
     X = df[feature_cols].copy()
     y = df["is_event_anchor"].astype(int)
+    groups = df["site_id"].astype(str)
+
+    for c in ["tag", "parent_tag"]:
+        if c in X.columns:
+            X[c] = X[c].astype("category")
+
+    return X, y, groups
+
+def add_is_event_member_label(
+    df: pd.DataFrame,
+    config: Dict[str, Any],
+) -> pd.DataFrame:
+    """
+    Binary target for full event-member detection.
+    A node is positive if it belongs to any labeled event.
+    This uses event_id directly instead of a manual label list.
+    """
+    if "event_id" not in df.columns:
+        raise ValueError(
+            f"'event_id' column not found. Available columns: {df.columns.tolist()}"
+        )
+
+    out = df.copy()
+    out["is_event_member"] = df["event_id"].notna().astype(int)
+    return out
+
+
+def build_feature_matrix_for_member(
+    df: pd.DataFrame,
+) -> Tuple[pd.DataFrame, pd.Series, pd.Series]:
+    """
+    Feature matrix for full event-member node detection.
+    Returns X, y, groups.
+    """
+    if "is_event_member" not in df.columns:
+        raise ValueError(
+            "is_event_member missing. Call add_is_event_member_label() first."
+        )
+    if "site_id" not in df.columns:
+        raise ValueError("site_id missing. Ensure loader adds site_id.")
+
+    feature_cols = [c for c in EVENT_FEATURE_COLUMNS if c in df.columns]
+
+    X = df[feature_cols].copy()
+    y = df["is_event_member"].astype(int)
     groups = df["site_id"].astype(str)
 
     for c in ["tag", "parent_tag"]:

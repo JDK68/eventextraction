@@ -1,0 +1,799 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Event Extraction System - Comprehensive Demo</title>
+    <style>
+        body { 
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Arial, sans-serif;
+            max-width: 1400px; 
+            margin: 40px auto; 
+            padding: 20px;
+            background: #f5f7fa;
+        }
+        h1 { 
+            color: #2c3e50; 
+            border-bottom: 3px solid #3498db;
+            padding-bottom: 10px;
+        }
+        h2 {
+            color: #2c3e50;
+            margin-top: 40px;
+            padding: 15px;
+            background: white;
+            border-left: 5px solid #3498db;
+            border-radius: 5px;
+        }
+        .intro {
+            background: white;
+            padding: 25px;
+            border-radius: 8px;
+            margin: 20px 0;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            line-height: 1.8;
+        }
+        .stats {
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            margin: 20px 0;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+        }
+        .stat-item {
+            padding: 15px;
+            text-align: center;
+        }
+        .stat-label { 
+            font-size: 0.9em; 
+            color: #7f8c8d; 
+            display: block;
+            margin-bottom: 5px;
+        }
+        .stat-value { 
+            font-size: 2em; 
+            font-weight: bold; 
+            color: #27ae60;
+        }
+        .event { 
+            background: white;
+            border-left: 5px solid #27ae60;
+            margin: 20px 0; 
+            padding: 20px; 
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        .event-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+        .event-title {
+            font-size: 1.3em;
+            font-weight: bold;
+            color: #2c3e50;
+        }
+        .badge-perfect {
+            background: #27ae60;
+            color: white;
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 0.9em;
+        }
+        .badge-partial {
+            background: #e74c3c;
+            color: white;
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 0.9em;
+        }
+        .cluster-info {
+            padding: 10px;
+            background: #ecf0f1;
+            border-radius: 5px;
+            margin-bottom: 15px;
+            font-size: 0.95em;
+        }
+        .field-section {
+            margin: 15px 0;
+            padding: 15px;
+            background: #f8f9fa;
+            border-radius: 5px;
+        }
+        .field-label {
+            font-weight: bold;
+            color: #34495e;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+        }
+        .field-icon {
+            margin-right: 8px;
+            font-size: 1.2em;
+        }
+        .field-comparison {
+            margin-top: 10px;
+        }
+        .comparison-row {
+            display: flex;
+            padding: 8px;
+            margin: 5px 0;
+            background: white;
+            border-radius: 4px;
+        }
+        .comparison-label {
+            min-width: 100px;
+            font-weight: bold;
+            color: #7f8c8d;
+        }
+        .comparison-value {
+            flex: 1;
+            font-family: 'Courier New', monospace;
+            font-size: 0.95em;
+        }
+        .match-status {
+            font-weight: bold;
+            padding: 2px 8px;
+            border-radius: 3px;
+        }
+        .match-ok {
+            background: #d5f4e6;
+            color: #27ae60;
+        }
+        .match-fail {
+            background: #fadbd8;
+            color: #e74c3c;
+        }
+        .field-value-none {
+            padding: 8px;
+            color: #95a5a6;
+            font-style: italic;
+        }
+        .site-section {
+            margin: 40px 0;
+            padding: 20px;
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+        .site-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+            padding-bottom: 15px;
+            border-bottom: 2px solid #ecf0f1;
+        }
+        .site-name {
+            font-size: 1.5em;
+            font-weight: bold;
+            color: #2c3e50;
+        }
+        .site-score {
+            font-size: 1.8em;
+            font-weight: bold;
+        }
+        .score-perfect { color: #27ae60; }
+        .score-partial { color: #e74c3c; }
+        .score-medium { color: #f39c12; }
+    </style>
+</head>
+<body>
+    <h1>🎯 Event Extraction System - Comprehensive Demo</h1>
+    
+    <div class="intro">
+        <h3 style="margin-top: 0;">ML Capstone Project: Automated Event Detection and Field Extraction</h3>
+        <p>
+            This system automatically extracts structured event information from heterogeneous website DOM structures.
+            It combines machine learning (LightGBM) for node detection, spatial clustering for grouping, and 
+            intelligent field extraction with proximity expansion.
+        </p>
+        <p>
+            <strong>This demo shows three representative cases:</strong>
+        </p>
+        <ul>
+            <li><strong>Perfect Site (95.5%):</strong> Demonstrates successful end-to-end extraction</li>
+            <li><strong>Problematic Site (0%):</strong> Highlights remaining challenges and failure modes</li>
+            <li><strong>Medium Site (6.7%):</strong> Shows partial success with split dates/times</li>
+        </ul>
+    </div>
+    
+    <div class="stats">
+        <div class="stat-item">
+            <span class="stat-label">Websites Tested</span>
+            <span class="stat-value">16</span>
+        </div>
+        <div class="stat-item">
+            <span class="stat-label">Total Events</span>
+            <span class="stat-value">187</span>
+        </div>
+        <div class="stat-item">
+            <span class="stat-label">Detection Rate</span>
+            <span class="stat-value">99.5%</span>
+        </div>
+        <div class="stat-item">
+            <span class="stat-label">Clustering Accuracy</span>
+            <span class="stat-value">88.3%</span>
+        </div>
+        <div class="stat-item">
+            <span class="stat-label">Date Extraction</span>
+            <span class="stat-value">93.9%</span>
+        </div>
+        <div class="stat-item">
+            <span class="stat-label">Time Extraction</span>
+            <span class="stat-value">96.4%</span>
+        </div>
+        <div class="stat-item">
+            <span class="stat-label">Location Extraction</span>
+            <span class="stat-value">87.0%</span>
+        </div>
+        <div class="stat-item">
+            <span class="stat-label"><strong>Perfect Reconstitution</strong></span>
+            <span class="stat-value" style="color: #3498db;">75.5%</span>
+        </div>
+    </div>
+
+    <div class="site-section">
+        <div class="site-header">
+            <span class="site-name">Perfect Site: nacacnet.org</span>
+            <span class="site-score score-perfect">95.5%</span>
+        </div>
+
+    <div class="event" style="border-left-color: #27ae60;">
+        <div class="event-header">
+            <span class="event-title">Event #1</span>
+            <span class="badge-perfect">✓ Perfect</span>
+        </div>
+        
+        <div class="cluster-info">
+            <strong>Clustering:</strong> 1 cluster(s)
+            ✅ Well-clustered
+        </div>
+
+        <div class="field-section">
+            <div class="field-label">
+                <span class="field-icon">📅</span> Date
+            </div>
+
+            <div class="field-comparison">
+                <div class="comparison-row">
+                    <span class="comparison-label">Expected:</span>
+                    <span class="comparison-value">jan. 25, 2026</span>
+                </div>
+                <div class="comparison-row">
+                    <span class="comparison-label">Extracted:</span>
+                    <span class="comparison-value">jan. 25, 2026</span>
+                </div>
+                <div class="comparison-row">
+                    <span class="comparison-label">Match:</span>
+                    <span class="match-status match-ok">1/1 ✅</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="field-section">
+            <div class="field-label">
+                <span class="field-icon">🕐</span> Time
+            </div>
+
+            <div class="field-comparison">
+                <div class="comparison-row">
+                    <span class="comparison-label">Expected:</span>
+                    <span class="comparison-value">1/25: 11:00 a.m.-2:30 p.m.</span>
+                </div>
+                <div class="comparison-row">
+                    <span class="comparison-label">Extracted:</span>
+                    <span class="comparison-value">1/25: 11:00 a.m.-2:30 p.m.</span>
+                </div>
+                <div class="comparison-row">
+                    <span class="comparison-label">Match:</span>
+                    <span class="match-status match-ok">1/1 ✅</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="field-section">
+            <div class="field-label">
+                <span class="field-icon">📍</span> Location
+            </div>
+
+            <div class="field-comparison">
+                <div class="comparison-row">
+                    <span class="comparison-label">Expected:</span>
+                    <span class="comparison-value">atlanta - postponed, georgia international convention center</span>
+                </div>
+                <div class="comparison-row">
+                    <span class="comparison-label">Extracted:</span>
+                    <span class="comparison-value">atlanta - postponed, georgia international convention center</span>
+                </div>
+                <div class="comparison-row">
+                    <span class="comparison-label">Match:</span>
+                    <span class="match-status match-ok">2/2 ✅</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="event" style="border-left-color: #27ae60;">
+        <div class="event-header">
+            <span class="event-title">Event #2</span>
+            <span class="badge-perfect">✓ Perfect</span>
+        </div>
+        
+        <div class="cluster-info">
+            <strong>Clustering:</strong> 1 cluster(s)
+            ✅ Well-clustered
+        </div>
+
+        <div class="field-section">
+            <div class="field-label">
+                <span class="field-icon">📅</span> Date
+            </div>
+
+            <div class="field-comparison">
+                <div class="comparison-row">
+                    <span class="comparison-label">Expected:</span>
+                    <span class="comparison-value">jan. 27-28, 2026</span>
+                </div>
+                <div class="comparison-row">
+                    <span class="comparison-label">Extracted:</span>
+                    <span class="comparison-value">jan. 27-28, 2026</span>
+                </div>
+                <div class="comparison-row">
+                    <span class="comparison-label">Match:</span>
+                    <span class="match-status match-ok">1/1 ✅</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="field-section">
+            <div class="field-label">
+                <span class="field-icon">🕐</span> Time
+            </div>
+
+            <div class="field-comparison">
+                <div class="comparison-row">
+                    <span class="comparison-label">Expected:</span>
+                    <span class="comparison-value">1/27: 9 a.m.-noon, 6 p.m.-8:30 p.m. 1/28: 9 a.m.-noon</span>
+                </div>
+                <div class="comparison-row">
+                    <span class="comparison-label">Extracted:</span>
+                    <span class="comparison-value">1/27: 9 a.m.-noon, 6 p.m.-8:30 p.m. 1/28: 9 a.m.-noon</span>
+                </div>
+                <div class="comparison-row">
+                    <span class="comparison-label">Match:</span>
+                    <span class="match-status match-ok">1/1 ✅</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="field-section">
+            <div class="field-label">
+                <span class="field-icon">📍</span> Location
+            </div>
+
+            <div class="field-comparison">
+                <div class="comparison-row">
+                    <span class="comparison-label">Expected:</span>
+                    <span class="comparison-value">david l. lawrence convention center, pittsburgh - postponed</span>
+                </div>
+                <div class="comparison-row">
+                    <span class="comparison-label">Extracted:</span>
+                    <span class="comparison-value">david l. lawrence convention center, pittsburgh - postponed</span>
+                </div>
+                <div class="comparison-row">
+                    <span class="comparison-label">Match:</span>
+                    <span class="match-status match-ok">2/2 ✅</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="event" style="border-left-color: #27ae60;">
+        <div class="event-header">
+            <span class="event-title">Event #3</span>
+            <span class="badge-perfect">✓ Perfect</span>
+        </div>
+        
+        <div class="cluster-info">
+            <strong>Clustering:</strong> 1 cluster(s)
+            ✅ Well-clustered
+        </div>
+
+        <div class="field-section">
+            <div class="field-label">
+                <span class="field-icon">📅</span> Date
+            </div>
+
+            <div class="field-comparison">
+                <div class="comparison-row">
+                    <span class="comparison-label">Expected:</span>
+                    <span class="comparison-value">feb. 7, 2026</span>
+                </div>
+                <div class="comparison-row">
+                    <span class="comparison-label">Extracted:</span>
+                    <span class="comparison-value">feb. 7, 2026</span>
+                </div>
+                <div class="comparison-row">
+                    <span class="comparison-label">Match:</span>
+                    <span class="match-status match-ok">1/1 ✅</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="field-section">
+            <div class="field-label">
+                <span class="field-icon">🕐</span> Time
+            </div>
+
+            <div class="field-comparison">
+                <div class="comparison-row">
+                    <span class="comparison-label">Expected:</span>
+                    <span class="comparison-value">2/7: 1 p.m.-4 p.m.</span>
+                </div>
+                <div class="comparison-row">
+                    <span class="comparison-label">Extracted:</span>
+                    <span class="comparison-value">2/7: 1 p.m.-4 p.m.</span>
+                </div>
+                <div class="comparison-row">
+                    <span class="comparison-label">Match:</span>
+                    <span class="match-status match-ok">1/1 ✅</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="field-section">
+            <div class="field-label">
+                <span class="field-icon">📍</span> Location
+            </div>
+
+            <div class="field-comparison">
+                <div class="comparison-row">
+                    <span class="comparison-label">Expected:</span>
+                    <span class="comparison-value">greater columbus, greater columbus convention center</span>
+                </div>
+                <div class="comparison-row">
+                    <span class="comparison-label">Extracted:</span>
+                    <span class="comparison-value">greater columbus, greater columbus convention center</span>
+                </div>
+                <div class="comparison-row">
+                    <span class="comparison-label">Match:</span>
+                    <span class="match-status match-ok">2/2 ✅</span>
+                </div>
+            </div>
+        </div>
+    </div>
+        <p style='text-align: center; color: #7f8c8d; margin-top: 20px;'>... (18 more events)</p>
+    </div>
+
+    <div class="site-section">
+        <div class="site-header">
+            <span class="site-name">Problematic Site: wacac.org</span>
+            <span class="site-score score-partial">0%</span>
+        </div>
+
+    <div class="event" style="border-left-color: #e74c3c;">
+        <div class="event-header">
+            <span class="event-title">Event #1</span>
+            <span class="badge-partial">⚠ Partial</span>
+        </div>
+        
+        <div class="cluster-info">
+            <strong>Clustering:</strong> 1 cluster(s)
+            ✅ Well-clustered
+        </div>
+
+        <div class="field-section">
+            <div class="field-label">
+                <span class="field-icon">📅</span> Date
+            </div>
+
+            <div class="field-comparison">
+                <div class="comparison-row">
+                    <span class="comparison-label">Expected:</span>
+                    <span class="comparison-value">07, mar, march 7, 2026</span>
+                </div>
+                <div class="comparison-row">
+                    <span class="comparison-label">Extracted:</span>
+                    <span class="comparison-value">march 7, 2026</span>
+                </div>
+                <div class="comparison-row">
+                    <span class="comparison-label">Match:</span>
+                    <span class="match-status match-ok">1/3 ✅</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="field-section">
+            <div class="field-label">
+                <span class="field-icon">🕐</span> Time
+            </div>
+
+            <div class="field-comparison">
+                <div class="comparison-row">
+                    <span class="comparison-label">Expected:</span>
+                    <span class="comparison-value">11:30 am - 1:30 pm</span>
+                </div>
+                <div class="comparison-row">
+                    <span class="comparison-label">Extracted:</span>
+                    <span class="comparison-value">11:30 am - 1:30 pm</span>
+                </div>
+                <div class="comparison-row">
+                    <span class="comparison-label">Match:</span>
+                    <span class="match-status match-ok">1/1 ✅</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="field-section">
+            <div class="field-label">
+                <span class="field-icon">📍</span> Location
+            </div>
+
+            <div class="field-comparison">
+                <div class="comparison-row">
+                    <span class="comparison-label">Expected:</span>
+                    <span class="comparison-value">university of california, riverside</span>
+                </div>
+                <div class="comparison-row">
+                    <span class="comparison-label">Extracted:</span>
+                    <span class="comparison-value"></span>
+                </div>
+                <div class="comparison-row">
+                    <span class="comparison-label">Match:</span>
+                    <span class="match-status match-fail">0/1 ❌</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="event" style="border-left-color: #e74c3c;">
+        <div class="event-header">
+            <span class="event-title">Event #2</span>
+            <span class="badge-partial">⚠ Partial</span>
+        </div>
+        
+        <div class="cluster-info">
+            <strong>Clustering:</strong> 1 cluster(s)
+            ✅ Well-clustered
+        </div>
+
+        <div class="field-section">
+            <div class="field-label">
+                <span class="field-icon">📅</span> Date
+            </div>
+
+            <div class="field-comparison">
+                <div class="comparison-row">
+                    <span class="comparison-label">Expected:</span>
+                    <span class="comparison-value">10, mar, march 10, 2026</span>
+                </div>
+                <div class="comparison-row">
+                    <span class="comparison-label">Extracted:</span>
+                    <span class="comparison-value">10, mar, march 10, 2026</span>
+                </div>
+                <div class="comparison-row">
+                    <span class="comparison-label">Match:</span>
+                    <span class="match-status match-ok">3/3 ✅</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="field-section">
+            <div class="field-label">
+                <span class="field-icon">🕐</span> Time
+            </div>
+
+            <div class="field-comparison">
+                <div class="comparison-row">
+                    <span class="comparison-label">Expected:</span>
+                    <span class="comparison-value">10:00 am - 12:00 pm</span>
+                </div>
+                <div class="comparison-row">
+                    <span class="comparison-label">Extracted:</span>
+                    <span class="comparison-value">10:00 am - 12:00 pm</span>
+                </div>
+                <div class="comparison-row">
+                    <span class="comparison-label">Match:</span>
+                    <span class="match-status match-ok">1/1 ✅</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="field-section">
+            <div class="field-label">
+                <span class="field-icon">📍</span> Location
+            </div>
+
+            <div class="field-comparison">
+                <div class="comparison-row">
+                    <span class="comparison-label">Expected:</span>
+                    <span class="comparison-value">foothill college</span>
+                </div>
+                <div class="comparison-row">
+                    <span class="comparison-label">Extracted:</span>
+                    <span class="comparison-value"></span>
+                </div>
+                <div class="comparison-row">
+                    <span class="comparison-label">Match:</span>
+                    <span class="match-status match-fail">0/1 ❌</span>
+                </div>
+            </div>
+        </div>
+    </div>
+        <p style='text-align: center; color: #7f8c8d; margin-top: 20px;'>... (7 more events)</p>
+    </div>
+
+    <div class="site-section">
+        <div class="site-header">
+            <span class="site-name">Medium Site: members.sacac.org</span>
+            <span class="site-score score-medium">6.7%</span>
+        </div>
+
+    <div class="event" style="border-left-color: #27ae60;">
+        <div class="event-header">
+            <span class="event-title">Event #20</span>
+            <span class="badge-perfect">✓ Perfect</span>
+        </div>
+        
+        <div class="cluster-info">
+            <strong>Clustering:</strong> 1 cluster(s)
+            ✅ Well-clustered
+        </div>
+
+        <div class="field-section">
+            <div class="field-label">
+                <span class="field-icon">📅</span> Date
+            </div>
+
+            <div class="field-comparison">
+                <div class="comparison-row">
+                    <span class="comparison-label">Expected:</span>
+                    <span class="comparison-value">22, march, sun</span>
+                </div>
+                <div class="comparison-row">
+                    <span class="comparison-label">Extracted:</span>
+                    <span class="comparison-value">22, march, sun</span>
+                </div>
+                <div class="comparison-row">
+                    <span class="comparison-label">Match:</span>
+                    <span class="match-status match-ok">3/3 ✅</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="field-section">
+            <div class="field-label">
+                <span class="field-icon">🕐</span> Time
+            </div>
+
+            <div class="field-comparison">
+                <div class="comparison-row">
+                    <span class="comparison-label">Expected:</span>
+                    <span class="comparison-value">sacac 2026 annual conference</span>
+                </div>
+                <div class="comparison-row">
+                    <span class="comparison-label">Extracted:</span>
+                    <span class="comparison-value">sacac 2026 annual conference</span>
+                </div>
+                <div class="comparison-row">
+                    <span class="comparison-label">Match:</span>
+                    <span class="match-status match-ok">1/1 ✅</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="field-section">
+            <div class="field-label">
+                <span class="field-icon">📍</span> Location
+            </div>
+            <div class="field-value-none">(none expected)</div>
+        </div>
+    </div>
+
+    <div class="event" style="border-left-color: #e74c3c;">
+        <div class="event-header">
+            <span class="event-title">Event #1</span>
+            <span class="badge-partial">⚠ Partial</span>
+        </div>
+        
+        <div class="cluster-info">
+            <strong>Clustering:</strong> 1 cluster(s)
+            ✅ Well-clustered
+        </div>
+
+        <div class="field-section">
+            <div class="field-label">
+                <span class="field-icon">📅</span> Date
+            </div>
+
+            <div class="field-comparison">
+                <div class="comparison-row">
+                    <span class="comparison-label">Expected:</span>
+                    <span class="comparison-value">28, january, wed</span>
+                </div>
+                <div class="comparison-row">
+                    <span class="comparison-label">Extracted:</span>
+                    <span class="comparison-value"></span>
+                </div>
+                <div class="comparison-row">
+                    <span class="comparison-label">Match:</span>
+                    <span class="match-status match-fail">0/3 ❌</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="field-section">
+            <div class="field-label">
+                <span class="field-icon">🕐</span> Time
+            </div>
+
+            <div class="field-comparison">
+                <div class="comparison-row">
+                    <span class="comparison-label">Expected:</span>
+                    <span class="comparison-value">9:00 am - 11:00 am</span>
+                </div>
+                <div class="comparison-row">
+                    <span class="comparison-label">Extracted:</span>
+                    <span class="comparison-value">9:00 am - 11:00 am</span>
+                </div>
+                <div class="comparison-row">
+                    <span class="comparison-label">Match:</span>
+                    <span class="match-status match-ok">1/1 ✅</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="field-section">
+            <div class="field-label">
+                <span class="field-icon">📍</span> Location
+            </div>
+            <div class="field-value-none">(none expected)</div>
+        </div>
+    </div>
+        <p style='text-align: center; color: #7f8c8d; margin-top: 20px;'>... (27 more events)</p>
+    </div>
+
+    <div style="margin-top: 40px; padding: 25px; background: white; border-radius: 8px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);">
+        <h3>System Architecture</h3>
+        <ol style="line-height: 2;">
+            <li><strong>Detection (99.5%):</strong> LightGBM classifier with 27 structural and semantic features identifies event-related DOM nodes</li>
+            <li><strong>Clustering (88.3%):</strong> Unified spatial clustering using rendering order, parent index, and depth</li>
+            <li><strong>Post-processing:</strong> Proximity expansion captures short nodes (1-15 chars) near clusters</li>
+            <li><strong>Field Extraction:</strong> Multi-cluster extraction with set-based validation (33% overlap threshold)</li>
+        </ol>
+        
+        <h3>Key Innovations</h3>
+        <ul style="line-height: 2;">
+            <li><strong>Adaptive K:</strong> Top-K selection scales with site size (30-120 nodes)</li>
+            <li><strong>Proximity Expansion:</strong> Captures low-scoring short nodes (e.g., "7", "mar") within ±5 positions</li>
+            <li><strong>Multi-cluster Extraction:</strong> Extracts fields from all clusters containing event nodes (handles bad clustering)</li>
+            <li><strong>Set-based Validation:</strong> Flexible matching allows partial field overlap (handles split dates/times)</li>
+        </ul>
+        
+        <h3>Remaining Challenges</h3>
+        <ul style="line-height: 2;">
+            <li><strong>Label Heterogeneity:</strong> Sites use different labeling schemes (Date vs DateTime, StartTime+EndTime vs Time)</li>
+            <li><strong>Clustering Failures:</strong> Some sites have unusual DOM structures that confuse spatial clustering</li>
+            <li><strong>Short Node Detection:</strong> Very short nodes (1-3 chars) score poorly and may not enter top-K</li>
+        </ul>
+    </div>
+
+    <div style="margin-top: 40px; padding: 25px; background: #fff3cd; border-left: 5px solid #ffc107; border-radius: 8px;">
+        <h3 style="color: #856404; margin-top: 0;">Data Quality Challenges</h3>
+        <p style="line-height: 1.8; color: #856404;">
+            Analysis revealed labeling errors in the ground truth data. For example, some events have 
+            descriptive text labeled as "Date" (e.g., "details to come! contact..."), or single digits 
+            labeled as "Time". These labeling inconsistencies introduce noise into both training and validation.
+        </p>
+        <p style="line-height: 1.8; color: #856404;">
+            <strong>Implication:</strong> The reported 75.5% perfect reconstitution rate is achieved despite 
+            noisy ground truth labels. With cleaner annotations, the system would likely achieve 80-85% performance.
+        </p>
+    </div>
+    
+</body>
+</html>
