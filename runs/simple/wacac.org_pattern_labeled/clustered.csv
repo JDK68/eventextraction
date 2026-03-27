@@ -1,0 +1,51 @@
+text_context,label,event_id,is_event_member,rendering_order,parent_index,depth,contains_date,contains_time,text_length,score,row_id,pred_cluster
+"march 7, 2026",Date,1.0,1,308,307,17,True,False,13,0.05141003676002453,2924,1
+11:30 am - 1:30 pm,StartEndTime,1.0,1,310,307,17,False,True,18,0.8779074427079623,2925,1
+see the list of institutions who will be attending this event! (updated on jan. 22) exhibitor rates & details we are pleased to confirm that [...],Description,1.0,1,321,304,16,False,False,146,0.6814900047576428,2928,1
+10,Date,2.0,1,328,327,18,False,False,2,0.4907712296612996,2930,2
+mar,Date,2.0,1,329,327,18,False,False,3,0.8586532254932128,2931,2
+santa clara county college fair,Name,2.0,1,332,331,17,False,False,31,0.28853807864735315,2932,2
+"march 10, 2026",Date,2.0,1,334,333,17,True,False,14,0.11140380452391534,2933,2
+10:00 am - 12:00 pm,StartEndTime,2.0,1,336,333,17,False,True,19,0.7998690508330104,2934,2
+see the list of institutions who will be attending this event! (updated on jan. 22) exhibitor rates & details we are pleased to confirm that [...],Description,2.0,1,347,330,16,False,False,146,0.6948170793888504,2937,2
+"march 10, 2026",Date,3.0,1,360,359,17,True,False,14,0.06514013883931281,2942,3
+4:30 pm - 7:00 pm,StartEndTime,3.0,1,362,359,17,False,True,17,0.7469175002097875,2943,3
+see the list of institutions who will be attending this event! (updated on jan. 22) exhibitor rates & details we are pleased to confirm that [...],Description,3.0,1,373,356,16,False,False,146,0.5987295456683419,2946,3
+"march 11, 2026",Date,4.0,1,386,385,17,True,False,14,0.10560885614364608,2951,4
+6:00 pm - 8:00 pm,StartEndTime,4.0,1,388,385,17,False,True,17,0.6842754287404493,2952,4
+see the list of institutions who will be attending this event! (updated on jan. 22) exhibitor rates & details we are pleased to confirm that [...],Description,4.0,1,399,382,16,False,False,146,0.688207770671545,2955,4
+12,Date,5.0,1,406,405,18,False,False,2,0.16511521902449564,2957,5
+mar,Date,5.0,1,407,405,18,False,False,3,0.3516036518199242,2958,5
+san joaquin college fair,Name,5.0,1,410,409,17,False,False,24,0.19336765851709695,2959,5
+"march 12, 2026",Date,5.0,1,412,411,17,True,False,14,0.08985379698434498,2960,5
+10:00 am - 12:00 pm,StartEndTime,5.0,1,414,411,17,False,True,19,0.8488440005713606,2961,5
+see the list of institutions who will be attending this event! (updated on jan. 22) exhibitor rates & details we are pleased to confirm that [...],Description,5.0,1,425,408,16,False,False,146,0.6691127748622161,2964,5
+mar,Date,6.0,1,433,431,18,False,False,3,0.2866917228021758,2967,6
+"march 19, 2026",Date,6.0,1,438,437,17,True,False,14,0.17611787165399756,2969,6
+"march 19, 2026",Date,6.0,1,438,437,17,True,False,14,0.17611787165399756,2969,6
+6:00 pm - 8:00 pm,StartEndTime,6.0,1,440,437,17,False,True,17,0.7784658223399524,2970,6
+see the list of institutions who will be attending this event! (updated on jan. 22) exhibitor rates & details we are pleased to confirm that [...],Description,6.0,1,451,434,16,False,False,146,0.5987295456683419,2973,6
+21,Date,7.0,1,458,457,18,False,False,2,0.20493732541127405,2975,7
+mar,Date,7.0,1,459,457,18,False,False,3,0.2317276600876666,2976,7
+los angeles county college fair,Name,7.0,1,462,461,17,False,False,31,0.2920608185402478,2977,7
+"march 21, 2026",Date,7.0,1,464,463,17,True,False,14,0.17611787165399756,2978,7
+"march 21, 2026",Date,7.0,1,464,463,17,True,False,14,0.17611787165399756,2978,7
+11:30 am - 1:30 pm,StartEndTime,7.0,1,466,463,17,False,True,18,0.8683653882982904,2979,7
+see the list of institutions who will be attending this event! (updated on jan. 22) exhibitor rates & details we are pleased to confirm that [...],Description,7.0,1,477,460,16,False,False,146,0.6161250009062627,2982,7
+apr,Date,8.0,1,485,483,18,False,False,3,0.2317276600876666,2985,8
+"april 18, 2026",Date,8.0,1,490,489,17,True,False,14,0.17611787165399756,2987,8
+"april 18, 2026",Date,8.0,1,490,489,17,True,False,14,0.17611787165399756,2987,8
+1:00 pm - 3:00 pm,StartEndTime,8.0,1,492,489,17,False,True,17,0.755165923492101,2988,8
+see the list of institutions who will be attending this event! (updated on jan. 22) exhibitor rates & details we are pleased to confirm that [...],Description,8.0,1,503,486,16,False,False,146,0.688207770671545,2991,8
+21,Date,9.0,1,510,509,18,False,False,2,0.47818398511625604,2993,9
+apr,Date,9.0,1,511,509,18,False,False,3,0.8586532254932128,2994,9
+north san diego county college fair,Name,9.0,1,514,513,17,False,False,35,0.33000424812413176,2995,9
+"april 21, 2026",Date,9.0,1,516,515,17,True,False,14,0.10801787140174321,2996,9
+4:30 pm - 6:30 pm,StartEndTime,9.0,1,518,515,17,False,True,17,0.6729972457196534,2997,9
+see the list of institutions who will be attending this event! (updated on jan. 22) exhibitor rates & details we are pleased to confirm that [...],Description,9.0,1,529,512,16,False,False,146,0.6520648866154015,3000,9
+"high school students, parents & counselors",Other,,0,532,292,12,False,False,42,0.3926930830291842,3002,9
+the next day,Other,,0,540,539,13,False,False,12,0.9233180427072403,3010,9
+executive board,Other,,0,543,542,13,False,False,15,0.17251285308871334,3013,9
+representatives are required to dress in business or business casual (no t-shirts or blue jeans) for all programs.,Other,,0,556,545,13,False,False,114,0.19696069514891787,3025,9
+"in order to minimize problems of congestion and blocked visibility, displays cannot exceed or obstruct the view of adjacent tables and should be no larger than 6ft high x 3ft wide. tablecloths or drops are permitted.",Other,,0,557,545,13,False,False,216,0.17314667104813897,3026,9
+"if you have any questions, please email .",Other,,0,560,559,13,False,False,41,0.8732791724802512,3028,9

@@ -1,0 +1,93 @@
+text_context,label,event_id,is_event_member,rendering_order,parent_index,depth,contains_date,contains_time,text_length,score,row_id,pred_cluster
+"inside new england - $160,",Other,,0,465,462,15,False,False,26,0.2550585441136091,2084,1
+"secondary schools and parents, please view our",Other,,0,484,483,18,False,False,46,0.8335536909832838,2094,2
+we hope you can join us!,Other,,0,494,493,18,False,False,24,0.5918851090906679,2097,2
+start time,Other,,0,511,510,20,False,False,10,0.3534495076677004,2101,3
+end time,Other,,0,514,513,20,False,False,8,0.5352240297106935,2102,3
+"city, state",Other,,0,520,519,20,False,False,11,0.3985302459873563,2104,3
+colleges attending,Other,,0,523,522,20,False,False,18,0.29259454148651587,2105,3
+southern new hampshire university,Name,1.0,1,527,526,20,False,False,33,0.9057601257516753,2106,3
+"tuesday, september 16th",Date,1.0,1,528,524,18,True,False,23,0.9996400902971809,2107,3
+9am,StartTime,1.0,1,530,529,19,False,True,3,0.9985382812492855,2108,3
+11am,EndTime,1.0,1,532,531,19,False,True,4,0.9985887126893191,2109,3
+athletic complex,Location,1.0,1,535,534,20,False,False,16,0.8881223507694257,2110,3
+"manchester, nh",Location,1.0,1,538,537,20,False,False,14,0.9695645222692736,2111,3
+"manchester, nh",Location,1.0,1,538,537,20,False,False,14,0.9695645222692736,2111,3
+click here,Other,,0,540,539,19,False,False,10,0.22120539836728892,2112,3
+university of new england,Name,2.0,1,543,542,19,False,False,25,0.9992080346170052,2113,3
+"wednesday, september 17th",Date,2.0,1,544,541,18,True,False,25,0.9995957387256639,2114,3
+9am,StartTime,2.0,1,546,545,19,False,True,3,0.996711631179867,2115,3
+11am,EndTime,2.0,1,548,547,19,False,True,4,0.9977572625090272,2116,3
+harold alfond forum,Location,2.0,1,551,550,20,False,False,19,0.9220948104973822,2117,3
+"biddeford, me",Location,2.0,1,553,552,19,False,False,13,0.9964831601901196,2118,3
+"biddeford, me",Location,2.0,1,553,552,19,False,False,13,0.9964831601901196,2118,3
+university of maine orono,Name,3.0,1,559,558,19,False,False,25,0.998516046794842,2120,3
+"thursday, september 18th",Date,3.0,1,560,557,18,True,False,24,0.9996534576509208,2121,3
+9am,StartTime,3.0,1,562,561,19,False,True,3,0.9984202708123702,2122,3
+11am,EndTime,3.0,1,564,563,19,False,True,4,0.9990395259582966,2123,3
+new balance recreation center,Location,3.0,1,565,557,18,False,False,29,0.9978510366596629,2124,3
+"orono, me",Location,3.0,1,567,566,19,False,False,9,0.9213830971060655,2125,3
+"orono, me",Location,3.0,1,567,566,19,False,False,9,0.9213830971060655,2125,3
+western new england university,Name,4.0,1,573,572,19,False,False,30,0.9912644146937405,2127,3
+"sunday, september 21st",Date,4.0,1,574,571,18,True,False,22,0.9990720897930356,2128,3
+12pm,StartTime,4.0,1,576,575,19,False,True,4,0.9992992658179544,2129,3
+2pm,EndTime,4.0,1,578,577,19,False,True,3,0.9994272855556612,2130,3
+alumni healthful living center,Location,4.0,1,581,580,20,False,False,30,0.9044525623581322,2131,3
+"springfield, ma",Location,4.0,1,583,582,19,False,False,15,0.9966500053586861,2132,3
+"springfield, ma",Location,4.0,1,583,582,19,False,False,15,0.9966500053586861,2132,3
+mount wachusett community college,Name,5.0,1,591,590,19,False,False,33,0.9895527727572282,2134,3
+"thursday, september 25th",Date,5.0,1,593,592,19,True,False,24,0.9976938238462558,2135,3
+9am,StartTime,5.0,1,596,595,20,False,True,3,0.959151094738663,2136,3
+11am,EndTime,5.0,1,599,598,20,False,True,4,0.9870050616100825,2137,3
+vietnam veteran memorial fitness center,Location,5.0,1,602,601,20,False,False,39,0.9507091009758295,2138,3
+"gardner, ma",Location,5.0,1,604,603,19,False,False,11,0.9863047865631889,2139,3
+"gardner, ma",Location,5.0,1,604,603,19,False,False,11,0.9863047865631889,2139,3
+worcester state university,Name,6.0,1,612,611,19,False,False,26,0.9964218746503166,2141,3
+"sunday, september 28th",Date,6.0,1,614,613,19,True,False,22,0.9973822991471093,2142,3
+11am,StartTime,6.0,1,617,616,20,False,True,4,0.9907454062919148,2143,3
+1pm,EndTime,6.0,1,620,619,20,False,True,3,0.9795777760143124,2144,3
+"wellness center, competition gymnasium",Location,6.0,1,621,610,18,False,False,38,0.9944073071463678,2145,3
+"worcester, ma",Location,6.0,1,623,622,19,False,False,13,0.9964831601901196,2146,3
+"worcester, ma",Location,6.0,1,623,622,19,False,False,13,0.9964831601901196,2146,3
+saint michael's college,Name,7.0,1,629,628,19,False,False,23,0.9995673301611545,2148,3
+"wednesday, october 8th",Date,7.0,1,631,630,19,True,False,22,0.9979412839031836,2149,3
+9am,StartTime,7.0,1,635,634,21,False,True,3,0.9783788439545467,2150,3
+6pm,StartTime,7.0,1,639,634,21,False,True,3,0.9772058987967662,2152,3
+12pm,EndTime,7.0,1,643,642,21,False,True,4,0.9683561453274756,2153,3
+8pm,EndTime,7.0,1,647,642,21,False,True,3,0.9810593583329605,2155,3
+tarrant recreation center,Location,7.0,1,648,627,18,False,False,25,0.994746786025969,2156,3
+"colchester, vt",Location,7.0,1,650,649,19,False,False,14,0.9970043072227407,2157,3
+"colchester, vt",Location,7.0,1,650,649,19,False,False,14,0.9970043072227407,2157,3
+university of new haven,Name,8.0,1,656,655,19,False,False,23,0.995835174579589,2159,3
+"thursday, october 9th",Date,8.0,1,658,657,19,True,False,21,0.993138002624572,2160,3
+9am,StartTime,8.0,1,661,660,20,False,True,3,0.9938501059461836,2161,3
+11am,EndTime,8.0,1,664,663,20,False,True,4,0.9904865130425294,2162,3
+"jeffery p. hazell gymnasium, north campus",Location,8.0,1,665,654,18,False,False,41,0.999448661532085,2163,3
+"west haven, ct",Location,8.0,1,667,666,19,False,False,14,0.993068275980032,2164,3
+"west haven, ct",Location,8.0,1,667,666,19,False,False,14,0.993068275980032,2164,3
+salem state university,Name,9.0,1,675,674,19,False,False,22,0.9963343709889784,2166,3
+"tuesday, october 14th",Date,9.0,1,677,676,19,True,False,21,0.9963760887504383,2167,3
+9am,StartTime,9.0,1,680,679,20,False,True,3,0.9938779017556105,2168,3
+12pm,EndTime,9.0,1,683,682,20,False,True,4,0.9889422080685843,2169,3
+o'keefe complex,Location,9.0,1,686,685,20,False,False,15,0.9531135828671327,2170,3
+o'keefe complex,Location,9.0,1,686,685,20,False,False,15,0.9531135828671327,2170,3
+"salem, ma",Location,9.0,1,687,673,18,False,False,9,0.9861063165219297,2171,3
+"salem, ma",Location,9.0,1,687,673,18,False,False,9,0.9861063165219297,2171,3
+click here,EndTime,10.0,1,690,689,20,False,False,10,0.05732422462842015,2172,3
+berkshire community college,Name,10.0,1,692,691,18,False,False,27,0.9887079515628582,2173,3
+"friday, october 17th",Date,10.0,1,694,693,19,True,False,20,0.9962034547832129,2174,3
+9am,StartTime,10.0,1,696,695,19,False,True,3,0.997324294527194,2175,3
+11am,EndTime,10.0,1,698,697,19,False,True,4,0.9953768293672246,2176,3
+paterson field house,Location,10.0,1,701,700,20,False,False,20,0.9275938234952501,2177,3
+"pittsfield, ma",Location,10.0,1,702,691,18,False,False,14,0.9989814990387592,2178,3
+"pittsfield, ma",Location,10.0,1,702,691,18,False,False,14,0.9989814990387592,2178,3
+exhibitor guidelines can be found,Other,,0,710,709,14,False,False,33,0.3069919119779964,2180,3
+admin@neacac.org,Other,,0,714,713,14,False,False,16,0.3521036057019898,2184,3
+"fri feb 13, 2026",Other,,0,804,803,13,True,False,16,0.9989879177299614,2204,4
+winter institute,Other,,0,806,805,14,False,False,16,0.4062894015161821,2205,4
+category: events,Other,,0,807,803,13,False,False,16,0.38527890016561667,2206,4
+"tue mar 10, 2026",Other,,0,811,810,13,True,False,16,0.9991378613977883,2207,4
+category: career colloquium,Other,,0,814,810,13,False,False,27,0.5593339671395866,2209,4
+"wed mar 25, 2026",Other,,0,818,817,13,True,False,16,0.9992551742038681,2210,4
+neacac college fair at bishop guertin high school,Other,,0,820,819,14,False,False,49,0.2731042786016764,2211,4
+"po box 639 feeding hills, ma 01030 | phone: 603-367-3292 | fax: 603-947-6400 please share your comments and feedback on this site:",Other,,0,829,827,6,False,False,130,0.47686606102639917,2215,4

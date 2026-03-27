@@ -1,0 +1,116 @@
+text_context,label,event_id,is_event_member,rendering_order,parent_index,depth,contains_date,contains_time,text_length,score,row_id,pred_cluster
+search for:,Other,,0,113,112,18,False,False,11,0.9989794096533702,1146,1
+search for:,Other,,0,900,899,18,False,False,11,0.9965656807707785,1310,2
+search for:,Other,,0,1329,1328,15,False,False,11,0.9948018009016981,1396,3
+search for:,Other,,0,1746,1745,17,False,False,11,0.9969172008922061,1481,4
+regular rate (after dec. 18),Other,,0,1980,1979,17,False,False,28,0.9921773837896098,1535,5
+nacac member institution,Other,,0,1995,1994,17,False,False,24,0.9971498071839137,1541,6
+"jan. 25, 2026",Other,,0,2036,2035,19,False,False,13,0.998847042228036,1551,7
+cleveland - postponed,Other,,0,2037,2035,19,False,False,21,0.9995169306303856,1552,7
+huntington convention center of cleveland,Other,,0,2038,2035,19,False,False,41,0.9996809892373363,1553,7
+1/25: 1 p.m.-4 p.m.,Other,,0,2039,2035,19,False,False,19,0.9992626384951602,1554,7
+"jan. 25, 2026",Date,1.0,1,2041,2040,19,False,False,13,0.998847042228036,1555,7
+"jan. 25, 2026",Date,1.0,1,2041,2040,19,False,False,13,0.998847042228036,1555,7
+atlanta - postponed,Location,1.0,1,2042,2040,19,False,False,19,0.9996879760023168,1556,7
+georgia international convention center,Location,1.0,1,2043,2040,19,False,False,39,0.9996742564186433,1557,7
+1/25: 11:00 a.m.-2:30 p.m.,StartEndTime,1.0,1,2044,2040,19,False,True,26,0.9997989032950516,1558,7
+"jan. 27-28, 2026",Date,2.0,1,2046,2045,19,False,False,16,0.9995757067636323,1559,7
+pittsburgh - postponed,Location,2.0,1,2047,2045,19,False,False,22,0.9997104128773555,1560,7
+david l. lawrence convention center,Location,2.0,1,2048,2045,19,False,False,35,0.9996997180650439,1561,7
+"1/27: 9 a.m.-noon, 6 p.m.-8:30 p.m. 1/28: 9 a.m.-noon",StartEndTime,2.0,1,2049,2045,19,False,False,53,0.998177750174346,1562,7
+"feb. 7, 2026",Date,3.0,1,2052,2051,19,False,False,12,0.9984447489363546,1563,7
+"feb. 7, 2026",Date,3.0,1,2052,2051,19,False,False,12,0.9984447489363546,1563,7
+greater columbus,Location,3.0,1,2053,2051,19,False,False,16,0.9991134917511149,1564,7
+greater columbus convention center,Location,3.0,1,2054,2051,19,False,False,34,0.9998437357645563,1565,7
+2/7: 1 p.m.-4 p.m.,StartEndTime,3.0,1,2055,2051,19,False,False,18,0.9990554783521377,1566,7
+"feb. 10, 2026",Date,4.0,1,2057,2056,19,False,False,13,0.998847042228036,1567,7
+"feb. 10, 2026",Date,4.0,1,2057,2056,19,False,False,13,0.998847042228036,1567,7
+greater los angeles,Location,4.0,1,2058,2056,19,False,False,19,0.9995117517991505,1568,7
+pasedena convention center,Location,4.0,1,2059,2056,19,False,False,26,0.9994655115917414,1569,7
+"2/10: 9 a.m.-12:30 p.m., 5:30 p.m.-8 p.m.",StartEndTime,4.0,1,2060,2056,19,False,True,41,0.9997137871302836,1570,7
+"march 1, 2026",Date,5.0,1,2062,2061,19,True,False,13,0.9986469423857766,1571,7
+"march 1, 2026",Date,5.0,1,2062,2061,19,True,False,13,0.9986469423857766,1571,7
+miami,Location,5.0,1,2063,2061,19,False,False,5,0.9884798954066245,1572,7
+miami airport convention center (adjacent to the doubletree by hilton miami),Location,5.0,1,2064,2061,19,False,False,76,0.9984920894714949,1573,7
+3/1: noon-4 p.m.,StartEndTime,5.0,1,2065,2061,19,False,False,16,0.9995089667348857,1574,7
+"march 4, 2026",Date,6.0,1,2067,2066,19,True,False,13,0.9990078778459074,1575,7
+"march 4, 2026",Date,6.0,1,2067,2066,19,True,False,13,0.9990078778459074,1575,7
+new jersey,Location,6.0,1,2068,2066,19,False,False,10,0.9956847032910788,1576,7
+new jersey,Location,6.0,1,2068,2066,19,False,False,10,0.9956847032910788,1576,7
+new jersey convention and exposition center,Location,6.0,1,2069,2066,19,False,False,43,0.9997533081953021,1577,7
+"3/4: 9 a.m.-noon, 5:30 p.m.-8:30 p.m.",StartEndTime,6.0,1,2070,2066,19,False,False,37,0.9996686500562032,1578,7
+"march 5, 2026",Date,7.0,1,2072,2071,19,True,False,13,0.9990078778459074,1579,7
+"march 5, 2026",Date,7.0,1,2072,2071,19,True,False,13,0.9990078778459074,1579,7
+austin,Location,7.0,1,2073,2071,19,False,False,6,0.9861005586489524,1580,7
+palmer events center,Location,7.0,1,2074,2071,19,False,False,20,0.9992396591742627,1581,7
+3/5: 6 p.m.-8:30 p.m.,StartEndTime,7.0,1,2075,2071,19,False,False,21,0.9997011945938581,1582,7
+"march 15-16, 2026",Date,8.0,1,2077,2076,19,True,False,17,0.9998142542037192,1583,7
+rochester,Location,8.0,1,2078,2076,19,False,False,9,0.9911619512657754,1584,7
+rochester,Location,8.0,1,2078,2076,19,False,False,9,0.9911619512657754,1584,7
+rochester riverside convention center,Location,8.0,1,2079,2076,19,False,False,37,0.9997250454616967,1585,7
+3/15: 1 p.m.-3 p.m. 3/16: 9 a.m.-11:30 a.m.,StartEndTime,8.0,1,2080,2076,19,False,True,43,0.9983718580451827,1586,7
+"march 16-17, 2026",Date,9.0,1,2083,2082,19,True,False,17,0.9997376882966896,1587,7
+syracuse,Location,9.0,1,2084,2082,19,False,False,8,0.9891242248001268,1588,7
+the oncenter convention center,Location,9.0,1,2085,2082,19,False,False,30,0.9996685352671539,1589,7
+3/16: 5 p.m.-7:30 p.m. 3/17: 9 a.m.-11:30 a.m.,StartEndTime,9.0,1,2086,2082,19,False,True,46,0.9983653290531393,1590,7
+"march 17, 2026",Date,10.0,1,2089,2088,19,True,False,14,0.9996781291830035,1591,7
+"march 17, 2026",Date,10.0,1,2089,2088,19,True,False,14,0.9996781291830035,1591,7
+springfield,Location,10.0,1,2090,2088,19,False,False,11,0.9896985627022372,1592,7
+eastern states exposition,Location,10.0,1,2091,2088,19,False,False,25,0.9995488328650433,1593,7
+3/17: 9 a.m.-11:30 a.m.,StartEndTime,10.0,1,2092,2088,19,False,True,23,0.9997934689378778,1594,7
+"march 17-18, 2025",Date,11.0,1,2094,2093,19,True,False,17,0.9997376882966896,1595,7
+hartford,Location,11.0,1,2095,2093,19,False,False,8,0.9891242248001268,1596,7
+connecticut convention center,Location,11.0,1,2096,2093,19,False,False,29,0.9992768536967789,1597,7
+3/17: 5:30 p.m.-8 p.m. 3/18: 9 a.m.-1 p.m.,StartEndTime,11.0,1,2097,2093,19,False,False,42,0.9972749785927414,1598,7
+"march 18-19, 2026",Date,12.0,1,2100,2099,19,True,False,17,0.9998142542037192,1599,7
+buffalo,Location,12.0,1,2101,2099,19,False,False,7,0.9861931041494211,1600,7
+buffalo convention center,Location,12.0,1,2102,2099,19,False,False,25,0.9996509711202485,1601,7
+"3/18: 9 a.m.-noon, 6 p.m.-8:00 p.m. 3/19: 9 a.m.-noon",StartEndTime,12.0,1,2103,2099,19,False,False,53,0.9981433056296973,1602,7
+"march 21, 2026",Date,13.0,1,2106,2105,19,True,False,14,0.9997783557079788,1603,7
+"march 21, 2026",Date,13.0,1,2106,2105,19,True,False,14,0.9997783557079788,1603,7
+charlotte,Location,13.0,1,2107,2105,19,False,False,9,0.9911619512657754,1604,7
+charlotte,Location,13.0,1,2107,2105,19,False,False,9,0.9911619512657754,1604,7
+charlotte convention center,Location,13.0,1,2108,2105,19,False,False,27,0.9989551554588013,1605,7
+3/21: noon-3 p.m.,StartEndTime,13.0,1,2109,2105,19,False,False,17,0.9997235729341957,1606,7
+"april 2, 2026",Date,14.0,1,2111,2110,19,True,False,13,0.9990078778459074,1607,7
+"april 2, 2026",Date,14.0,1,2111,2110,19,True,False,13,0.9990078778459074,1607,7
+houston,Location,14.0,1,2112,2110,19,False,False,7,0.9861931041494211,1608,7
+nrg center,Location,14.0,1,2113,2110,19,False,False,10,0.995789693136304,1609,7
+nrg center,Location,14.0,1,2113,2110,19,False,False,10,0.995789693136304,1609,7
+"4/2: 9:30 a.m.-12:30 p.m., 6 p.m.-8 p.m.",StartEndTime,14.0,1,2114,2110,19,False,True,40,0.9997272271440598,1610,7
+"april 19, 2026",Date,15.0,1,2116,2115,19,True,False,14,0.9996781291830035,1611,7
+"april 19, 2026",Date,15.0,1,2116,2115,19,True,False,14,0.9996781291830035,1611,7
+new york city,Location,15.0,1,2117,2115,19,False,False,13,0.9955848246427459,1612,7
+new york city,Location,15.0,1,2117,2115,19,False,False,13,0.9955848246427459,1612,7
+jacob k. javits convention center,Location,15.0,1,2118,2115,19,False,False,33,0.9998640614312017,1613,7
+4/19: noon-4 p.m.,StartEndTime,15.0,1,2119,2115,19,False,False,17,0.9997235729341957,1614,7
+"april 21-22, 2026",Date,16.0,1,2121,2120,19,True,False,17,0.9998142542037192,1615,7
+montgomery county,Location,16.0,1,2122,2120,19,False,False,17,0.9986812333246086,1616,7
+adventist healthcare fieldhouse,Location,16.0,1,2123,2120,19,False,False,31,0.9994021281005369,1617,7
+"4/21: 9:45 a.m.-1 p.m., 6:30 p.m.-8 p.m. 4/22: 9:45 a.m.-1 p.m.",StartEndTime,16.0,1,2124,2120,19,False,False,63,0.9966927367434215,1618,7
+"april 24, 2026",Date,17.0,1,2127,2126,19,True,False,14,0.9997783557079788,1619,7
+"april 24, 2026",Date,17.0,1,2127,2126,19,True,False,14,0.9997783557079788,1619,7
+prince george's county,Location,17.0,1,2128,2126,19,False,False,22,0.9996059330590057,1620,7
+prince george's sports and learning complex,Location,17.0,1,2129,2126,19,False,False,43,0.9995129386085235,1621,7
+4/24: 9:30 a.m.-12:30 p.m.,StartEndTime,17.0,1,2130,2126,19,False,True,26,0.9997835291137369,1622,7
+"april 27-28, 2026",Date,18.0,1,2132,2131,19,True,False,17,0.9997376882966896,1623,7
+boston,Location,18.0,1,2133,2131,19,False,False,6,0.9861005586489524,1624,7
+hynes convention center,Location,18.0,1,2134,2131,19,False,False,23,0.9997269946084748,1625,7
+4/27: 5:30 p.m.-8:30 p.m. 4/28: 8:30 a.m.-12:30 p.m.,StartEndTime,18.0,1,2135,2131,19,False,True,52,0.9993062579391471,1626,7
+"april 29, 2026",Date,19.0,1,2138,2137,19,True,False,14,0.9996781291830035,1627,7
+"april 29, 2026",Date,19.0,1,2138,2137,19,True,False,14,0.9996781291830035,1627,7
+providence,Location,19.0,1,2139,2137,19,False,False,10,0.9902562535174179,1628,7
+rhode island convention center,Location,19.0,1,2140,2137,19,False,False,30,0.9997499981943555,1629,7
+4/29: 5:30 p.m.-7:30 p.m.,StartEndTime,19.0,1,2141,2137,19,False,False,25,0.9997083710088591,1630,7
+"april 30, 2026",Date,20.0,1,2143,2142,19,True,False,14,0.9997783557079788,1631,7
+"april 30, 2026",Date,20.0,1,2143,2142,19,True,False,14,0.9997783557079788,1631,7
+metro detroit,Location,20.0,1,2144,2142,19,False,False,13,0.9969680928531124,1632,7
+metro detroit,Location,20.0,1,2144,2142,19,False,False,13,0.9969680928531124,1632,7
+suburban collection showplace,Location,20.0,1,2145,2142,19,False,False,29,0.9992417683577305,1633,7
+"4/30: 8:30 a.m.-11:30 a.m., 6 p.m.-8 p.m.",StartEndTime,20.0,1,2146,2142,19,False,True,41,0.9997137871302836,1634,7
+"june 6, 2026",Date,21.0,1,2148,2147,19,True,False,12,0.9980471857773323,1635,7
+"june 6, 2026",Date,21.0,1,2148,2147,19,True,False,12,0.9980471857773323,1635,7
+denver stem,Location,21.0,1,2149,2147,19,False,False,11,0.9961732540325351,1636,7
+denver stem,Location,21.0,1,2149,2147,19,False,False,11,0.9961732540325351,1636,7
+colorado school of mines,Location,21.0,1,2150,2147,19,False,False,24,0.9996853685220101,1637,7
+6/6: 1 p.m.-4 p.m.,StartEndTime,21.0,1,2151,2147,19,False,False,18,0.9990554783521377,1638,7

@@ -1,0 +1,43 @@
+text_context,label,event_id,is_event_member,rendering_order,parent_index,depth,contains_date,contains_time,text_length,score,row_id,pred_cluster
+awards and nominations (2025),Other,,0,40,39,16,False,False,29,0.14855457730915117,401,1
+remember me,Other,,0,126,124,12,False,False,11,0.04812591127374435,417,2
+donate to our scholarship fund,Other,,0,156,155,19,False,False,30,0.6088363827865725,419,3
+awards and nominations (2025),Other,,0,198,197,23,False,False,29,0.04849600336713585,423,4
+college fairs,Other,,0,297,296,15,False,False,13,0.0801775329786927,444,5
+greater indianapolis northside college fair,Other,,0,319,318,18,False,False,43,0.8121601814022231,445,6
+2026 information coming soon,Other,,0,328,327,17,False,False,28,0.970948712067612,447,6
+"premium members, please email stacie vetor to rsvp for this event.",Other,,0,336,335,22,False,False,66,0.11761012989073333,448,6
+contact .,Other,,0,339,338,17,False,False,9,0.8732634282638232,449,6
+questions?,Other,,0,340,339,18,False,False,10,0.5830570919718664,450,6
+stacie vetor,Other,,0,344,343,19,False,False,12,0.1960064116705116,451,6
+nacac national college fairs,Other,,0,350,349,18,False,False,28,0.9031412823278693,452,6
+the national association for college admission counseling (nacac) sanctions in-person and virtual college fairs throughout the u.s. to connect students with hundreds of institutions.,Other,,0,356,355,16,False,False,182,0.06671544583242506,453,6
+more!,Other,,0,363,361,20,False,False,5,0.06478384234169039,455,6
+inacac fairs,Other,,0,371,370,17,False,False,12,0.4608625707780375,456,6
+college fair calendar,Other,,0,383,382,19,False,False,21,0.17507947331994958,459,7
+events.,Other,,0,384,381,18,False,False,7,0.2574159756776726,460,7
+registration for all inacac fairs is coordinated individually by each fair host based on space and availability.,Other,,0,388,387,18,False,False,112,0.5520462194866086,461,7
+not a member?,Other,,0,401,400,20,False,False,13,0.5072306651113628,463,8
+join today!,Other,,0,402,401,21,False,False,11,0.06697170859598055,464,8
+indy metro college fair,Name,1.0,1,417,416,19,False,False,23,0.9711023505349097,465,9
+the indy metro college fair is hosted by the inacac college fair committee. the event offers opportunities for high school students in marion county to meet with college admission representatives from both indiana and out-of-state institutions.,Other,,0,424,423,16,False,False,244,0.08490219976982356,466,9
+"registration opens july 24, 2025 for indiana and out-of-state inacac members. please make sure you have to expedite your college fair registration.",Other,,0,426,425,16,True,False,147,0.21781147616016958,467,9
+"september 10, 2025",Date,1.0,1,432,431,19,True,False,18,0.9851135471710286,469,9
+iu – indianapolis campus center |,Location,1.0,1,437,436,19,False,False,35,0.9016451003558511,470,9
+"indianapolis, in",Location,1.0,1,440,439,18,False,False,16,0.9872263414060025,471,9
+inacac members $125 non members $225 (fee includes strivescan code),Other,,0,452,451,20,False,False,67,0.5703715266375216,473,10
+registration fee:,Other,,0,453,452,21,False,False,17,0.439743607297932,474,10
+contact .,Other,,0,459,458,17,False,False,9,0.46892712945327386,475,10
+questions?,Other,,0,460,459,18,False,False,10,0.6124474181637636,476,10
+stacie vetor,Other,,0,464,463,19,False,False,12,0.3988313616244474,477,10
+connect,Other,,0,500,499,16,False,False,7,0.09920666218222358,479,11
+search,Other,,0,524,522,19,False,False,6,0.7087443681040202,480,12
+indiana association for college admission counseling,Other,,0,542,541,17,False,False,52,0.5457186751489227,482,13
+185 kings cross court,Other,,0,545,544,17,False,False,21,0.9617658367147764,483,13
+"noblesville, in 46060",Other,,0,548,547,17,False,False,21,0.9864833140581571,484,13
+(317) 922-6166,Other,,0,551,550,17,False,False,14,0.8791450520533479,485,13
+join inacac,Other,,0,571,570,18,False,False,11,0.2824114518878624,487,14
+premium packages,Other,,0,575,574,18,False,False,16,0.25357700048972676,488,14
+members,Other,,0,588,587,16,False,False,7,0.09828652423502274,490,15
+member resources,Other,,0,601,600,17,False,False,16,0.5938124118045609,492,16
+© indiana association for college admission counseling,Other,,0,615,614,16,False,False,55,0.6418081424946519,493,17

@@ -1,0 +1,26 @@
+text_context,label,event_id,is_event_member,rendering_order,parent_index,depth,contains_date,contains_time,text_length,score,row_id,pred_cluster
+what is kyacac?,Other,,0,35,34,16,False,False,15,0.07088772937138897,503,1
+annual conference & gwi,Other,,0,69,68,16,False,False,23,0.49976824521111646,511,2
+new admissions and high school counselor retreat,Other,,0,77,76,16,False,False,48,0.21724240599570002,513,2
+communications & technology,Other,,0,110,109,16,False,False,27,0.04475521018168548,521,3
+governance & nominations,Other,,0,114,113,16,False,False,24,0.04845138913712522,522,3
+student impact and success,Other,,0,122,121,16,False,False,26,0.5334621395661373,524,3
+professional development,Other,,0,130,129,16,False,False,24,0.028903565543652966,526,3
+member application & renewal,Other,,0,143,142,16,False,False,28,0.35076095917345435,529,4
+kentucky association for college admission counseling,Other,,0,196,195,17,False,False,53,0.17428697787599334,533,5
+remember me,Other,,0,233,231,21,False,False,11,0.06726239713774096,535,6
+forgot password,Other,,0,237,236,21,False,False,15,0.03287081876772963,536,6
+history,Other,,0,268,267,22,False,False,7,0.05701151195102511,540,7
+presidential message,Other,,0,284,283,19,False,False,20,0.16679283795365074,544,8
+events,Other,,0,293,292,19,False,False,6,0.06445029965443572,546,8
+annual conference & gwi,Other,,0,298,297,22,False,False,23,0.04000030031926647,547,8
+kyacac fair evaluation form,Other,,0,426,425,13,False,False,27,0.940048821423948,573,9
+nacac fall 2025 college fair,Name,1.0,1,451,450,12,False,False,28,0.19052408612925992,578,10
+"date: tuesday, october 28th",Date,1.0,1,462,461,11,True,False,27,0.05689176179932466,580,11
+time: 9:00am-12:00pm and 6:00pm-8:00pm,StartEndTime,1.0,1,468,467,11,False,True,38,0.5566076649970549,582,11
+(859) 233-8509,Other,,0,502,501,17,False,False,14,0.06819873491977353,586,12
+kyacac,Other,,0,521,520,17,False,False,6,0.3383361845767041,587,13
+c/o transylvania university,Other,,0,524,523,17,False,False,27,0.8550863925017345,588,13
+office of admissions,Other,,0,527,526,17,False,False,20,0.9712676155936987,589,13
+300 north broadway,Other,,0,530,529,17,False,False,18,0.9545177288408382,590,13
+"lexington, ky 40508",Other,,0,533,532,17,False,False,19,0.9881134654503007,591,13

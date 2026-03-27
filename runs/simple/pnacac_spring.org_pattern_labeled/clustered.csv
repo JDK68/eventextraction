@@ -1,0 +1,27 @@
+text_context,label,event_id,is_event_member,rendering_order,parent_index,depth,contains_date,contains_time,text_length,score,row_id,pred_cluster
+college fairs,Other,,0,821,807,20,False,False,13,0.9173453143228161,2534,1
+boise fair,Name,1.0,1,874,864,20,False,False,10,0.8692470755242547,2536,2
+"saturday, april 1",Date,1.0,1,880,879,19,True,False,17,0.9883039489844726,2537,2
+"boise state university, jordan ballroom",Location,1.0,1,885,884,19,False,False,39,0.996614136427269,2541,2
+11:00am-1:00pm,StartEndTime,1.0,1,888,886,19,False,True,13,0.9953163440719911,2543,2
+11:00am-1:00pm,StartEndTime,1.0,1,888,886,19,False,True,13,0.9953163440719911,2543,2
+snohomish county fair,Name,2.0,1,917,907,20,False,False,21,0.9825615028834118,2544,3
+"thursday, april 2",Date,2.0,1,923,922,19,True,False,17,0.9946010433977884,2545,3
+meadowdale high school,Location,2.0,1,928,927,19,False,False,22,0.993367922609558,2549,3
+6:00-8:00pm,StartEndTime,2.0,1,930,929,19,False,True,11,0.8214665055283368,2550,3
+6:00-8:00pm,StartEndTime,2.0,1,930,929,19,False,True,11,0.8214665055283368,2550,3
+seattle fair,Name,3.0,1,960,950,20,False,False,12,0.8752434228425003,2551,4
+"saturday, april 2",Date,3.0,1,966,965,19,True,False,17,0.9929222678032502,2552,4
+seattle university,Location,3.0,1,971,970,19,False,False,18,0.9205849423159982,2556,4
+9:00am-12:00pm,StartEndTime,3.0,1,973,972,19,False,True,14,0.9477494949512802,2557,4
+9:00am-12:00pm,StartEndTime,3.0,1,973,972,19,False,True,14,0.9477494949512802,2557,4
+portland fair,Name,4.0,1,1002,992,20,False,False,13,0.9296308975958524,2558,5
+"sunday, april 2",Date,4.0,1,1008,1007,19,True,False,15,0.9767057981973516,2559,5
+"sunday, april 2",Date,4.0,1,1008,1007,19,True,False,15,0.9767057981973516,2559,5
+6,Date,4.0,1,1009,1007,19,False,False,1,0.8867850578582646,2560,5
+", 202",Date,4.0,1,1010,1007,19,False,False,5,0.7461367345976206,2561,5
+", 202",Date,4.0,1,1010,1007,19,False,False,5,0.7461367345976206,2561,5
+6,Date,4.0,1,1011,1007,19,False,False,1,0.9088165573503887,2562,5
+university of portland,Location,4.0,1,1013,1012,19,False,False,22,0.7222111840729972,2563,5
+12:00-3:00pm,StartEndTime,4.0,1,1015,1014,19,False,True,12,0.9836573872491423,2564,5
+12:00-3:00pm,StartEndTime,4.0,1,1015,1014,19,False,True,12,0.9836573872491423,2564,5

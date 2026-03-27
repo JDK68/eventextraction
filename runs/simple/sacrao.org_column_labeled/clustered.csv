@@ -1,0 +1,50 @@
+text_context,label,event_id,is_event_member,rendering_order,parent_index,depth,contains_date,contains_time,text_length,score,row_id,pred_cluster
+2026 conference,Other,,0,48,47,12,False,False,15,0.40031693989370026,2787,1
+2026 conference,Other,,0,53,52,14,False,False,15,0.6370004476980735,2788,1
+2026 member registration,Other,,0,56,55,14,False,False,24,0.5043599359115527,2789,1
+2026 hotel information,Other,,0,62,61,14,False,False,22,0.7531956596702107,2791,1
+2026 conference speakers,Other,,0,65,64,14,False,False,24,0.30895338575792575,2792,1
+2026 conference tips,Other,,0,68,67,14,False,False,20,0.47743581589361117,2793,1
+2026 amusement park information,Other,,0,71,70,14,False,False,31,0.16364110444256613,2794,1
+2026 travel information,Other,,0,74,73,14,False,False,23,0.6696154693553025,2795,1
+2026 conference app,Other,,0,77,76,14,False,False,19,0.4167988749787785,2796,1
+keep me logged in,Other,,0,188,186,10,False,False,17,0.2707482819785471,2827,2
+2026 conference,Other,,0,222,221,13,False,False,15,0.7264993851153161,2832,3
+2026 member registration,Other,,0,226,225,15,False,False,24,0.2730841753463472,2833,3
+2026 hotel information,Other,,0,232,231,15,False,False,22,0.3954448237586783,2835,3
+2026 conference speakers,Other,,0,235,234,15,False,False,24,0.179945730401563,2836,3
+2026 conference tips,Other,,0,238,237,15,False,False,20,0.4106792228425315,2837,3
+2026 travel information,Other,,0,244,243,15,False,False,23,0.4126297738815697,2839,3
+2026 conference app,Other,,0,247,246,15,False,False,19,0.4023091386972032,2840,3
+mission & history,Other,,0,254,253,13,False,False,17,0.37491581790791345,2842,3
+constitution & bylaws,Other,,0,263,262,13,False,False,21,0.42221495046654794,2845,3
+annual meeting & president history,Other,,0,266,265,13,False,False,34,0.2668752417879822,2846,3
+ways to get involved,Other,,0,285,284,13,False,False,20,0.5516737904816593,2852,4
+preparing a site bid (pdf),Other,,0,288,287,13,False,False,26,0.48506577001909235,2853,4
+site bid proposal online submission,Other,,0,291,290,13,False,False,35,0.44624027204434535,2854,4
+i'm available form,Other,,0,297,296,13,False,False,18,0.7529218301902222,2856,4
+make a donation,Other,,0,300,299,13,False,False,15,0.16318564428475607,2857,4
+dues & application,Other,,0,307,306,13,False,False,18,0.37846984267549394,2859,4
+"apps, forms & docs",Other,,0,323,322,13,False,False,18,0.4648216449871976,2864,5
+sacrao 2026,Name,1.0,1,373,372,16,False,False,11,0.8870708967017386,2870,6
+"february 1-4, 2026:",Date,1.0,1,377,376,18,True,False,19,0.996643780068497,2871,6
+"orlando, florida",Location,1.0,1,378,372,16,False,False,16,0.19374740556681838,2872,6
+doubletree by hilton hotel at the entrance to universal orlando,Location,1.0,1,381,380,17,False,False,63,0.2825007018271926,2874,6
+here's how sacrao does it:,Other,,0,398,395,16,False,False,26,0.4113625657705227,2880,7
+holds annual meeting each year in february,Other,,0,400,399,17,False,False,42,0.5916776708406463,2881,7
+offers workshops on your specific needs,Other,,0,402,399,17,False,False,39,0.5923811048967712,2883,7
+promotes program ideas,Other,,0,403,399,17,False,False,22,0.4488865359903575,2884,7
+"functions as a supportive ""friend"" of aacrao",Other,,0,406,399,17,False,False,44,0.4793302906915828,2887,7
+fosters a friendly spirit of cooperation among its members,Other,,0,407,399,17,False,False,58,0.17765146669234808,2888,7
+provides a regional professional network,Other,,0,408,399,17,False,False,40,0.25874583069318213,2889,7
+southern association of collegiate registrars and admissions officers,Other,,0,417,416,17,False,False,69,0.17838151043965544,2893,7
+to provide for the dissemination of information and the interchange of ideas or problems of common interest,Other,,0,420,419,17,False,False,107,0.16618006054195908,2894,7
+to contribute to the advancement of higher education in its fullest and broadest implication,Other,,0,421,419,17,False,False,92,0.21083974496199176,2895,7
+to foster a friendly spirit of unity and cooperation among its members; and,Other,,0,422,419,17,False,False,75,0.2774061036371643,2896,7
+to function as a unifying and coordinating agency among the separate state organizations of admissions officers and registrars.,Other,,0,423,419,17,False,False,127,0.19964576611655904,2897,7
+save the date:,Other,,0,426,425,18,False,False,14,0.9758696473314747,2898,7
+sacrao 2026,Other,,0,431,429,19,False,False,11,0.8784811840191944,2899,7
+"february 1 - 4, 2026 orlando, florida; doubletree by hilton orlando - universal studios",Other,,0,435,434,18,True,False,87,0.834564586543431,2900,7
+"sun feb 1, 2026",Other,,0,460,459,13,True,False,15,0.45707938732426245,2906,8
+sacrao 2026,Other,,0,462,461,14,False,False,11,0.9540925491952721,2907,8
+category: sacrao annual meeting,Other,,0,463,459,13,False,False,31,0.9104365225997422,2908,8

@@ -1,0 +1,88 @@
+text_context,label,event_id,is_event_member,rendering_order,parent_index,depth,contains_date,contains_time,text_length,score,row_id,pred_cluster
+articles of organization & by-laws,Other,,0,311,310,12,False,False,34,0.10514887166394041,2302,1
+annual meeting & conference 2026,Other,,0,398,397,12,False,False,32,0.04380787667370132,2330,2
+annual meeting & conference 2025,Other,,0,401,400,12,False,False,32,0.05832830306685317,2331,2
+2026 neacac spring college fairs,Other,,0,456,455,13,False,False,32,0.5026619826772413,2346,3
+"inside new england - $160, outside new england - $185,",Other,,0,460,455,13,False,False,54,0.15134491885476406,2348,3
+exhibitor registration fees:,Other,,0,461,460,14,False,False,28,0.6923596434225766,2349,3
+early bird rate - $135,Other,,0,463,460,14,False,False,22,0.6987427859339331,2350,3
+early bird rate - $160,Other,,0,465,460,14,False,False,22,0.6987427859339331,2351,3
+"early bird rate ends friday, february 13th, 2026",Other,,0,467,460,14,True,False,48,0.11053628262673124,2352,3
+neacac is pleased to announce we have partnered with,Other,,0,469,468,14,False,False,52,0.3164797758057817,2353,3
+"to bring student barcode scanning technology to our college fairs. strivescan will enhance the experience for students and colleges by making information exchange more efficient and productive, while also providing valuable data to our organization and the fair organizers.",Other,,0,471,468,14,False,False,273,0.5849639681886338,2355,3
+"college reps use the strivescan app to scan students' barcodes. reps can instantly view the student's information and take notes right in the app. after the fair, reps export the student data with one click to a csv excel file, or can them directly to their crm.",Other,,0,473,472,14,False,False,262,0.415939241096432,2356,3
+scanning is included in neacac fair registration fees and is provided at no additional cost to attending institutions.,Other,,0,475,473,15,False,False,118,0.6765002459364111,2358,3
+"secondary schools, please view our",Other,,0,480,479,15,False,False,34,0.9873193396775568,2359,3
+high school resource page,Other,,0,483,482,16,False,False,25,0.7002765903622095,2360,3
+. we hope you can join us!,Other,,0,484,481,15,False,False,26,0.9394689308580044,2361,3
+2026 neacac spring college fair schedule,Other,,0,487,455,13,False,False,40,0.8321407225098868,2362,3
+start time,Other,,0,501,500,20,False,False,10,0.06505956047523236,2365,4
+end time,Other,,0,504,503,20,False,False,8,0.29759747976544926,2366,4
+"city, state",Other,,0,510,509,20,False,False,11,0.18634763098307922,2368,4
+colleges attending,Other,,0,513,512,20,False,False,18,0.20291788711174003,2369,4
+bishop guertin high school,Name,1.0,1,515,514,18,False,False,26,0.9984130087565536,2370,4
+"wednesday, march 25th",Date,1.0,1,516,514,18,True,False,21,0.9976400148644404,2371,4
+6pm,StartTime,1.0,1,518,517,19,False,True,3,0.9853387269447719,2372,4
+open to the public at 6:30pm,StartTime,1.0,1,520,518,20,False,True,28,0.7430389031575249,2373,4
+8pm,EndTime,1.0,1,521,514,18,False,True,3,0.9990165154991171,2374,4
+roedell field house,Location,1.0,1,522,514,18,False,False,19,0.994160284368847,2375,4
+"nashua, nh",Location,1.0,1,523,514,18,False,False,10,0.9195149284544496,2376,4
+"nashua, nh",Location,1.0,1,523,514,18,False,False,10,0.9195149284544496,2376,4
+mitchell college,Name,2.0,1,527,526,19,False,False,16,0.9867543676730727,2377,4
+"thursday, april 23rd",Date,2.0,1,528,525,18,True,False,20,0.9989560279092715,2378,4
+9am,StartTime,2.0,1,530,529,19,False,True,3,0.9991707135314362,2379,4
+11am,EndTime,2.0,1,531,525,18,False,True,4,0.9986006221011993,2380,4
+yarnall athletic center,Location,2.0,1,532,525,18,False,False,23,0.9978774832861877,2381,4
+"new london, ct",Location,2.0,1,533,525,18,False,False,14,0.9965555807087095,2382,4
+"new london, ct",Location,2.0,1,533,525,18,False,False,14,0.9965555807087095,2382,4
+merrimack college,Name,3.0,1,536,535,18,False,False,17,0.9432877340021684,2383,4
+"sunday, may 3rd",Date,3.0,1,537,535,18,True,False,15,0.989630537437006,2384,4
+"sunday, may 3rd",Date,3.0,1,537,535,18,True,False,15,0.989630537437006,2384,4
+6pm,StartTime,3.0,1,539,538,19,False,True,3,0.9993352483492363,2385,4
+8pm,EndTime,3.0,1,540,535,18,False,True,3,0.9990165154991171,2386,4
+merrimack athletic complex: lawler rink,Location,3.0,1,541,535,18,False,False,39,0.9978572775195264,2387,4
+"north andover, ma",Location,3.0,1,542,535,18,False,False,17,0.9951678313808675,2388,4
+university of maine augusta,Name,4.0,1,547,546,18,False,False,27,0.9981358694983582,2389,4
+"thursday, may 14th",Date,4.0,1,548,546,18,True,False,18,0.9981337378811401,2390,4
+9am,StartTime,4.0,1,549,546,18,False,True,3,0.9990165154991171,2391,4
+11am,EndTime,4.0,1,550,546,18,False,True,4,0.9982187933986059,2392,4
+augusta civic center,Location,4.0,1,551,546,18,False,False,20,0.9840796420694422,2393,4
+"augusta, me",Location,4.0,1,552,546,18,False,False,11,0.9537992856537725,2394,4
+"augusta, me",Location,4.0,1,552,546,18,False,False,11,0.9537992856537725,2394,4
+assumption university,Name,5.0,1,555,554,18,False,False,21,0.9938883490688297,2395,4
+"tuesday, may 19th",Date,5.0,1,556,554,18,True,False,17,0.9968184173937829,2396,4
+5:30pm,StartTime,5.0,1,557,554,18,False,True,6,0.9978176368089738,2397,4
+5:30pm,StartTime,5.0,1,557,554,18,False,True,6,0.9978176368089738,2397,4
+7:30pm,EndTime,5.0,1,558,554,18,False,True,6,0.9975995612168472,2398,4
+7:30pm,EndTime,5.0,1,558,554,18,False,True,6,0.9975995612168472,2398,4
+plourde recreation center,Location,5.0,1,559,554,18,False,False,25,0.9919902315137408,2399,4
+"worcester, ma",Location,5.0,1,560,554,18,False,False,13,0.9694441690073705,2400,4
+"worcester, ma",Location,5.0,1,560,554,18,False,False,13,0.9694441690073705,2400,4
+bridgewater state university,Name,6.0,1,566,565,19,False,False,28,0.9680975966807008,2401,4
+"thursday, may 21st",Date,6.0,1,569,568,19,True,False,18,0.9651214724223475,2402,4
+9am,StartTime,6.0,1,571,570,19,False,True,3,0.971554037168851,2403,4
+11am,EndTime,6.0,1,573,572,19,False,True,4,0.973613912604192,2404,4
+tinsley center,Location,6.0,1,577,564,18,False,False,14,0.9795429748467797,2405,4
+tinsley center,Location,6.0,1,577,564,18,False,False,14,0.9795429748467797,2405,4
+"bridgewater, ma",Location,6.0,1,578,564,18,False,False,15,0.9942885195501004,2406,4
+"bridgewater, ma",Location,6.0,1,578,564,18,False,False,15,0.9942885195501004,2406,4
+franklin pierce university,Name,7.0,1,584,583,19,False,False,26,0.951398197163404,2407,4
+"friday, may 29th",Date,7.0,1,586,585,19,True,False,16,0.9839207160115058,2408,4
+9am,StartTime,7.0,1,588,587,19,False,True,3,0.9878868413437434,2409,4
+11am,EndTime,7.0,1,590,589,19,False,True,4,0.9888229360172469,2410,4
+"grimshaw-gudiewicz northfields activity center ""the bubble""",Location,7.0,1,592,591,19,False,False,59,0.9935344720685083,2411,4
+"rindge, nh",Location,7.0,1,593,582,18,False,False,10,0.9937738034705584,2412,4
+"rindge, nh",Location,7.0,1,593,582,18,False,False,10,0.9937738034705584,2412,4
+exhibitor guidelines can be found,Other,,0,596,595,14,False,False,33,0.9063833431804581,2413,4
+please email with any questions about the neacac college fairs.,Other,,0,600,455,13,False,False,63,0.2746847936683848,2416,4
+admin@neacac.org,Other,,0,601,600,14,False,False,16,0.1709800677182855,2417,4
+amc 2026 sponsorship opportunities now available!,Other,,0,669,668,11,False,False,49,0.05903734626881333,2434,5
+"fri feb 13, 2026",Other,,0,691,690,13,True,False,16,0.9982854310349207,2437,6
+winter institute,Other,,0,693,692,14,False,False,16,0.0904071251290542,2438,6
+category: events,Other,,0,694,690,13,False,False,16,0.8776927763128928,2439,6
+"tue mar 10, 2026",Other,,0,698,697,13,True,False,16,0.9942109723457458,2440,6
+career colloquium,Other,,0,700,699,14,False,False,17,0.04152330934118998,2441,6
+category: career colloquium,Other,,0,701,697,13,False,False,27,0.940613071132814,2442,6
+"wed mar 25, 2026",Other,,0,705,704,13,True,False,16,0.9975661520467228,2443,6
+neacac college fair at bishop guertin high school,Other,,0,707,706,14,False,False,49,0.5943464796956502,2444,6
+category: spring fairs,Other,,0,708,704,13,False,False,22,0.9911341583404591,2445,6

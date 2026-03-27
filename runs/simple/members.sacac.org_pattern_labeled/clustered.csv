@@ -1,0 +1,83 @@
+text_context,label,event_id,is_event_member,rendering_order,parent_index,depth,contains_date,contains_time,text_length,score,row_id,pred_cluster
+sacac leads 2026 - session 2,NameLink,1.0,1,508,507,27,False,False,28,0.9952415231457937,913,1
+9:00 am - 11:00 am,StartEndTime,1.0,1,509,506,26,False,True,18,0.9989431874836892,914,1
+mississippi drive-in workshop & advocacy day,NameLink,2.0,1,529,528,27,False,False,44,0.9954223413574386,919,2
+8:30 am - 3:00 pm,StartEndTime,2.0,1,530,527,26,False,True,17,0.9965809029588095,920,2
+register,Date,3.0,1,535,534,26,False,False,8,0.0736359207590838,922,2
+private school counselor special interest group (sig) meeting,StartEndTime,3.0,1,551,550,27,False,False,61,0.9921898727264132,926,3
+11:30 am - 12:30 pm,Description,3.0,1,552,549,26,False,True,19,0.9989296245860255,927,3
+"details to come! questions or concerns? contact sara bayliss (sbayliss@jpiichs.org), sig coordinator.",Date,4.0,1,555,549,26,False,False,101,0.9947834007459836,928,3
+register,Date,4.0,1,557,556,26,False,False,8,0.019186663503168815,929,3
+governance & nominating committee meeting,Description,4.0,1,573,572,27,False,False,41,0.9889473090011939,933,4
+9:00 am - 1:00 pm,Date,5.0,1,574,571,26,False,True,17,0.9987879508930101,934,4
+wed,Date,5.0,1,582,581,27,False,False,3,0.9954086658440634,935,5
+february,Date,5.0,1,585,584,28,False,False,8,0.9915400153118911,936,5
+february,Date,5.0,1,585,584,28,False,False,8,0.9915400153118911,936,5
+8:30 am - 12:30 pm,Description,5.0,1,594,591,26,False,True,18,0.9986333282269427,939,5
+register,Date,6.0,1,598,597,26,False,False,8,0.04606359234735789,940,5
+tennessee voices in action virtual event,StartEndTime,6.0,1,614,613,27,False,False,40,0.9977592795902285,944,6
+10:00 am - 1:00 pm,Description,6.0,1,615,612,26,False,True,18,0.9966713779089847,945,6
+register,Date,7.0,1,620,619,26,False,False,8,0.01754679336354839,947,6
+georgia virtual drive-in workshop,Description,7.0,1,636,635,27,False,False,33,0.9942740718716929,951,7
+11:30 am - 2:15 pm,Date,8.0,1,637,634,26,False,True,18,0.9967880135149536,952,7
+register,Date,8.0,1,641,640,26,False,False,8,0.03501231912281383,953,7
+tue,Date,8.0,1,646,645,27,False,False,3,0.9967122234051864,954,8
+february,NameLink,8.0,1,649,648,28,False,False,8,0.990847133359355,955,8
+10,StartEndTime,8.0,1,651,650,28,False,False,2,0.9901527219451215,956,8
+6:30 pm - 7:30 pm,Date,9.0,1,658,655,26,False,True,17,0.9972830590270663,958,8
+register,Date,9.0,1,663,662,26,False,False,8,0.12708873482064872,960,8
+georgia legislative day 2026,Date,10.0,1,679,678,27,False,False,28,0.994840371917908,964,9
+"details to come! questions or concerns? please contact ga govrel co-chairs, bryan cooper (bcooper@whitefieldacademy.com) and sandria mason (sandria.mason@pitt.edu).",Date,10.0,1,682,677,26,False,False,164,0.9924058784960083,965,9
+governance & nominating committee meeting,Description,10.0,1,699,698,27,False,False,41,0.9915813848549488,969,10
+9:00 am - 1:00 pm,Date,11.0,1,700,697,26,False,True,17,0.9970532529196086,970,10
+north carolina & south carolina virtual drive-in workshop,StartEndTime,11.0,1,719,718,27,False,False,57,0.9891035346443385,974,11
+8:00 am - 10:30 am,Description,11.0,1,720,717,26,False,True,18,0.9989431874836892,975,11
+register,Date,12.0,1,725,724,26,False,False,8,0.06641916276046321,977,11
+sacac leads 2026 - session 3,Description,12.0,1,741,740,27,False,False,28,0.9942642155717752,981,12
+9:00 am - 11:00 am,Date,13.0,1,742,739,26,False,True,18,0.9986533452633414,982,12
+florida virtual drive-in workshop,Description,13.0,1,762,761,27,False,False,33,0.9915696495255191,987,13
+register,Date,14.0,1,766,765,26,False,False,8,0.11360517736676001,988,13
+11:00 am - 12:00 pm,Description,14.0,1,783,780,26,False,True,19,0.9970269738650109,993,14
+register,Date,15.0,1,787,786,26,False,False,8,0.11360517736676001,994,14
+sacac louisiana voices in action virtual event,StartEndTime,15.0,1,803,802,27,False,False,46,0.9947079984504559,998,15
+9:00 am - 11:00 am,Description,15.0,1,804,801,26,False,True,18,0.9972686605554878,999,15
+alabama virtual drive-in workshop,NameLink,16.0,1,823,822,27,False,False,33,0.9918113836709982,1003,16
+8:30 am - 11:00 am,StartEndTime,16.0,1,824,821,26,False,True,18,0.9982701148569212,1004,16
+"join us for this free, virtual event!",Description,16.0,1,827,821,26,False,False,37,0.9929484167522112,1005,16
+register,Date,17.0,1,829,828,26,False,False,8,0.04606359234735789,1006,16
+arkansas govrel voices in action & drive-in workshop,StartEndTime,17.0,1,845,844,27,False,False,52,0.9940419279516702,1010,17
+9:00 am - 12:00 pm,Description,17.0,1,846,843,26,False,True,18,0.9972686605554878,1011,17
+sacac sig leaders meeting,NameLink,18.0,1,865,864,27,False,False,25,0.9888101953801445,1015,18
+12:00 pm - 1:00 pm,StartEndTime,18.0,1,866,863,26,False,True,18,0.9982641861568254,1016,18
+pre-sacac conference meeting for all existing sig leaders,Description,18.0,1,869,863,26,False,False,57,0.9961533277000532,1017,18
+sacac leads 2026 - session 4,NameLink,19.0,1,886,885,27,False,False,28,0.9942642155717752,1021,19
+9:00 am - 11:00 am,StartEndTime,19.0,1,887,884,26,False,True,18,0.9982701148569212,1022,19
+sun,Date,20.0,1,896,895,27,False,False,3,0.992704685264186,1024,20
+march,Date,20.0,1,899,898,28,False,False,5,0.9905092014401065,1025,20
+march,Date,20.0,1,899,898,28,False,False,5,0.9905092014401065,1025,20
+22,Date,20.0,1,901,900,28,False,False,2,0.9878453377514873,1026,20
+sacac 2026 annual conference,StartEndTime,20.0,1,908,907,27,False,False,28,0.9973805087537183,1028,20
+register,Date,21.0,1,913,912,26,False,False,8,0.11360517736676001,1030,20
+11:00 am - 12:00 pm,Description,21.0,1,930,927,26,False,True,19,0.9979021037256481,1035,21
+register,Date,22.0,1,934,933,26,False,False,8,0.026172411205970816,1036,21
+11:00 am - 12:00 pm,Description,22.0,1,951,948,26,False,True,19,0.9983516771992398,1041,22
+register,Date,23.0,1,955,954,26,False,False,8,0.12708873482064872,1042,22
+christian special interest group (sig) meeting,StartEndTime,23.0,1,971,970,27,False,False,46,0.9964386897553944,1046,23
+10:00 am - 11:00 am,Description,23.0,1,972,969,26,False,True,19,0.9979239477352081,1047,23
+this will be a time for fellowship and discussion. questions? contact bonnie tolier (btoliver@whitefieldacademy.com) or ben blue (blueb@appstate.edu).,Date,24.0,1,975,969,26,False,False,150,0.9893976073381877,1048,23
+register,Date,24.0,1,977,976,26,False,False,8,0.026172411205970816,1049,23
+12:00 pm - 1:00 pm,Date,25.0,1,994,991,26,False,True,18,0.9986333282269427,1054,24
+"details to come! questions or concerns? contact sara bayliss (sbayliss@jpiichs.org), sig coordinator.",Date,25.0,1,997,991,26,False,False,101,0.9917379755328566,1055,24
+register,Date,25.0,1,999,998,26,False,False,8,0.12708873482064872,1056,24
+12:00 pm - 1:00 pm,Date,26.0,1,1016,1013,26,False,True,18,0.9984633350381364,1061,25
+register,Date,26.0,1,1020,1019,26,False,False,8,0.11360517736676001,1062,25
+10:00 am - 11:00 am,Date,27.0,1,1037,1034,26,False,True,19,0.9980410142403747,1067,26
+hear from other regional across the southeast as they share their successes and struggles from this past travel season. questions or concerns? please contact sig co-coordinators andrew hunsinger (andrew.hunsinger@uvm.edu) and max gold ...,Date,27.0,1,1040,1034,26,False,False,238,0.9925074776138124,1068,26
+lgbtqia+ special interest group meeting,Date,28.0,1,1058,1057,27,False,False,39,0.9939627172817314,1073,27
+12:00 pm - 1:00 pm,Date,28.0,1,1059,1056,26,False,True,18,0.9982641861568254,1074,27
+"join us for an engaging virtual gathering of our lgbtq+ special interest group! this is your chance to connect, share experiences, and celebrate our vibrant community in an inclusive and welcoming space. whether you're here to network, support, or ...",NameLink,28.0,1,1062,1056,26,False,False,251,0.9881113448413512,1075,27
+register,StartEndTime,28.0,1,1064,1063,26,False,False,8,0.11360517736676001,1076,27
+2026 ias forum,Date,29.0,1,1080,1079,27,False,False,14,0.9956244068028215,1080,28
+2026 ias forum,Date,29.0,1,1080,1079,27,False,False,14,0.9956244068028215,1080,28
+12:00 am,Other,,0,1121,1118,26,False,True,8,0.9935181307401874,1092,29
+jan 2026,Other,,0,1132,1129,27,True,False,8,0.9978262969701095,1093,30

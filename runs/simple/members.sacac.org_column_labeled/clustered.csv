@@ -1,0 +1,84 @@
+text_context,label,event_id,is_event_member,rendering_order,parent_index,depth,contains_date,contains_time,text_length,score,row_id,pred_cluster
+sacac leads 2026 - session 2,NameLink,1.0,1,508,507,27,False,False,28,0.9881055670216135,640,1
+9:00 am - 11:00 am,StartEndTime,1.0,1,509,506,26,False,True,18,0.9991040875328194,641,1
+mississippi drive-in workshop & advocacy day,NameLink,2.0,1,529,528,27,False,False,44,0.9889454012992677,646,2
+8:30 am - 3:00 pm,StartEndTime,2.0,1,530,527,26,False,True,17,0.9977367663139313,647,2
+private school counselor special interest group (sig) meeting,NameLink,3.0,1,551,550,27,False,False,61,0.9912493688990021,653,3
+11:30 am - 12:30 pm,StartEndTime,3.0,1,552,549,26,False,True,19,0.999193975103338,654,3
+"details to come! questions or concerns? contact sara bayliss (sbayliss@jpiichs.org), sig coordinator.",Description,3.0,1,555,549,26,False,False,101,0.9945348893978645,655,3
+governance & nominating committee meeting,NameLink,4.0,1,573,572,27,False,False,41,0.9922547840705834,660,4
+9:00 am - 1:00 pm,StartEndTime,4.0,1,574,571,26,False,True,17,0.9977331465588898,661,4
+tennessee virtual drive-in workshop,NameLink,5.0,1,593,592,27,False,False,35,0.988001240814237,665,5
+8:30 am - 12:30 pm,StartEndTime,5.0,1,594,591,26,False,True,18,0.9990485476481576,666,5
+tennessee voices in action virtual event,NameLink,6.0,1,614,613,27,False,False,40,0.9979726575726684,671,6
+10:00 am - 1:00 pm,StartEndTime,6.0,1,615,612,26,False,True,18,0.9980042728708816,672,6
+georgia virtual drive-in workshop,NameLink,7.0,1,636,635,27,False,False,33,0.9940290758242426,678,7
+11:30 am - 2:15 pm,StartEndTime,7.0,1,637,634,26,False,True,18,0.9963245413398282,679,7
+tue,Date,7.0,1,646,645,27,False,False,3,0.9970018700198119,681,8
+february,Date,7.0,1,649,648,28,False,False,8,0.9896066085826479,682,8
+february,Date,7.0,1,649,648,28,False,False,8,0.9896066085826479,682,8
+10,Date,7.0,1,651,650,28,False,False,2,0.9912304431005552,683,8
+6:30 pm - 7:30 pm,StartEndTime,8.0,1,658,655,26,False,True,17,0.9923594679434846,685,8
+georgia legislative day 2026,NameLink,9.0,1,679,678,27,False,False,28,0.9909694552889725,691,9
+"details to come! questions or concerns? please contact ga govrel co-chairs, bryan cooper (bcooper@whitefieldacademy.com) and sandria mason (sandria.mason@pitt.edu).",Description,9.0,1,682,677,26,False,False,164,0.9905233843614707,692,9
+governance & nominating committee meeting,NameLink,10.0,1,699,698,27,False,False,41,0.9948439414512592,696,10
+9:00 am - 1:00 pm,StartEndTime,10.0,1,700,697,26,False,True,17,0.9965497910856237,697,10
+8:00 am - 10:30 am,StartEndTime,11.0,1,720,717,26,False,True,18,0.9991040875328194,702,11
+sacac leads 2026 - session 3,NameLink,12.0,1,741,740,27,False,False,28,0.9960880894967223,708,12
+9:00 am - 11:00 am,StartEndTime,12.0,1,742,739,26,False,True,18,0.9992354402659087,709,12
+wed,Date,12.0,1,751,750,27,False,False,3,0.9973175427177996,711,13
+february,Date,12.0,1,754,753,28,False,False,8,0.9950278655825303,712,13
+february,Date,12.0,1,754,753,28,False,False,8,0.9950278655825303,712,13
+18,Date,12.0,1,756,755,28,False,False,2,0.9877927512915996,713,13
+florida virtual drive-in workshop,NameLink,13.0,1,762,761,27,False,False,33,0.9960915527492091,714,13
+thu,Date,13.0,1,771,770,27,False,False,3,0.9977497468239553,716,14
+february,Date,13.0,1,774,773,28,False,False,8,0.9916266524872194,717,14
+february,Date,13.0,1,774,773,28,False,False,8,0.9916266524872194,717,14
+19,Date,13.0,1,776,775,28,False,False,2,0.9862047976794126,718,14
+sacac virtual book club - the hidden cost of rigor,NameLink,14.0,1,782,781,27,False,False,50,0.992699450891487,719,14
+11:00 am - 12:00 pm,StartEndTime,14.0,1,783,780,26,False,True,19,0.9986287815046879,720,14
+tue,Date,14.0,1,792,791,27,False,False,3,0.9970018700198119,722,15
+february,Date,14.0,1,795,794,28,False,False,8,0.9908356799702307,723,15
+february,Date,14.0,1,795,794,28,False,False,8,0.9908356799702307,723,15
+24,Date,14.0,1,797,796,28,False,False,2,0.9862047976794126,724,15
+sacac louisiana voices in action virtual event,NameLink,15.0,1,803,802,27,False,False,46,0.9963169736129359,725,15
+9:00 am - 11:00 am,StartEndTime,15.0,1,804,801,26,False,True,18,0.9977129500604626,726,15
+wed,Date,15.0,1,812,811,27,False,False,3,0.9977497468239553,727,16
+february,Date,15.0,1,815,814,28,False,False,8,0.9908356799702307,728,16
+february,Date,15.0,1,815,814,28,False,False,8,0.9908356799702307,728,16
+25,Date,15.0,1,817,816,28,False,False,2,0.9625577430486744,729,16
+alabama virtual drive-in workshop,NameLink,16.0,1,823,822,27,False,False,33,0.9956153159415192,730,16
+8:30 am - 11:00 am,StartEndTime,16.0,1,824,821,26,False,True,18,0.9985443290542936,731,16
+"join us for this free, virtual event!",Description,16.0,1,827,821,26,False,False,37,0.9960955793479728,732,16
+thu,Date,16.0,1,834,833,27,False,False,3,0.9977497468239553,734,16
+february,Date,16.0,1,837,836,28,False,False,8,0.9950278655825303,735,16
+february,Date,16.0,1,837,836,28,False,False,8,0.9950278655825303,735,16
+26,Date,16.0,1,839,838,28,False,False,2,0.9862047976794126,736,16
+arkansas govrel voices in action & drive-in workshop,NameLink,17.0,1,845,844,27,False,False,52,0.9891134182011269,737,16
+9:00 am - 12:00 pm,StartEndTime,17.0,1,846,843,26,False,True,18,0.9986323366776143,738,16
+sacac sig leaders meeting,NameLink,18.0,1,865,864,27,False,False,25,0.997836714294755,742,17
+12:00 pm - 1:00 pm,StartEndTime,18.0,1,866,863,26,False,True,18,0.9992354402659087,743,17
+pre-sacac conference meeting for all existing sig leaders,Description,18.0,1,869,863,26,False,False,57,0.9929711550243555,744,17
+sacac leads 2026 - session 4,NameLink,19.0,1,886,885,27,False,False,28,0.9960880894967223,748,18
+9:00 am - 11:00 am,StartEndTime,19.0,1,887,884,26,False,True,18,0.9987268148354633,749,18
+sacac 2026 annual conference,NameLink,20.0,1,908,907,27,False,False,28,0.9958492974624422,755,19
+11:00 am - 12:00 pm,StartEndTime,21.0,1,930,927,26,False,True,19,0.9991258894121661,762,20
+11:00 am - 12:00 pm,StartEndTime,22.0,1,951,948,26,False,True,19,0.9991538896823356,768,21
+christian special interest group (sig) meeting,NameLink,23.0,1,971,970,27,False,False,46,0.9907101439257205,773,22
+10:00 am - 11:00 am,StartEndTime,23.0,1,972,969,26,False,True,19,0.9989949806811289,774,22
+this will be a time for fellowship and discussion. questions? contact bonnie tolier (btoliver@whitefieldacademy.com) or ben blue (blueb@appstate.edu).,Description,23.0,1,975,969,26,False,False,150,0.9898887018296832,775,22
+campus programmers & campus tour guides sig meeting,NameLink,24.0,1,993,992,27,False,False,51,0.9903116072077491,780,23
+12:00 pm - 1:00 pm,StartEndTime,24.0,1,994,991,26,False,True,18,0.9990485476481576,781,23
+"details to come! questions or concerns? contact sara bayliss (sbayliss@jpiichs.org), sig coordinator.",Description,24.0,1,997,991,26,False,False,101,0.9927653239315263,782,23
+12:00 pm - 1:00 pm,StartEndTime,25.0,1,1016,1013,26,False,True,18,0.9988889403034403,788,24
+10:00 am - 11:00 am,StartEndTime,26.0,1,1037,1034,26,False,True,19,0.9989949806811289,794,25
+lgbtqia+ special interest group meeting,NameLink,27.0,1,1058,1057,27,False,False,39,0.9948985063553895,800,26
+12:00 pm - 1:00 pm,StartEndTime,24.0,1,1059,1056,26,False,True,18,0.9992354402659087,801,26
+2026 ias forum,NameLink,28.0,1,1080,1079,27,False,False,14,0.9977869218671243,807,27
+sacac summer board,NameLink,29.0,1,1101,1100,27,False,False,18,0.9947424438249515,813,28
+10,Date,29.0,1,1115,1113,28,False,False,2,0.9854272820428416,817,29
+nacac conference 2026,NameLink,30.0,1,1120,1119,27,False,False,21,0.9919002860970325,818,29
+12:00 am,StartEndTime,30.0,1,1121,1118,26,False,True,8,0.998723071656744,819,29
+12:00 am,StartEndTime,30.0,1,1121,1118,26,False,True,8,0.998723071656744,819,29
+jan 2026,Date,30.0,1,1132,1129,27,True,False,8,0.9977867529754866,820,30
+jan 2026,Date,30.0,1,1132,1129,27,True,False,8,0.9977867529754866,820,30

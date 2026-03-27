@@ -1,0 +1,45 @@
+text_context,label,event_id,is_event_member,rendering_order,parent_index,depth,contains_date,contains_time,text_length,score,row_id,pred_cluster
+about,Other,,0,72,71,19,False,False,5,0.4782844508364377,2,1
+leadership,Other,,0,74,73,19,False,False,10,0.6513660751954747,3,1
+strategic plan,Other,,0,78,77,19,False,False,14,0.511247085776707,5,1
+awards,Other,,0,82,81,19,False,False,6,0.2998643609469802,7,1
+member portal,Other,,0,93,92,19,False,False,13,0.5878159549423879,9,2
+join today,Other,,0,95,94,19,False,False,10,0.26932397613319625,10,2
+get involved,Other,,0,97,96,19,False,False,12,0.558163944529162,11,2
+member referral,Other,,0,99,98,19,False,False,15,0.8080346769916616,12,2
+resources and events,Other,,0,113,112,21,False,False,20,0.9190588324330473,17,3
+resources + events,Other,,0,118,117,19,False,False,18,0.9563553593831906,18,3
+job postings,Other,,0,122,121,19,False,False,12,0.6539720793472692,20,3
+scholarships & grants,Other,,0,124,123,19,False,False,21,0.9791676620908728,21,3
+leadership,Other,,0,143,142,22,False,False,10,0.2796732464365193,26,4
+kudos and spotlights,Other,,0,165,164,22,False,False,20,0.5413125322866602,36,5
+annual conference,Other,,0,169,168,19,False,False,17,0.6301021169666599,38,5
+college fairs,Other,,0,171,170,19,False,False,13,0.38748271320205485,39,5
+resources and events,Other,,0,174,173,20,False,False,20,0.9609785006593927,40,5
+resources + events,Other,,0,177,176,22,False,False,18,0.6153018870050723,41,5
+job postings,Other,,0,181,180,22,False,False,12,0.2875003118854304,43,5
+scholarships & grants,Other,,0,183,182,22,False,False,21,0.8086357160342559,44,5
+gpacac's college fairs,Other,,0,306,305,13,False,False,22,0.9982371683042778,67,6
+registration for spring fairs will open in late january! check back soon for a registration link. additional details will be released upon registration.,Other,,0,346,345,16,False,False,152,0.7656236481842589,74,7
+march 9th from 6-7:30pm,DateTime,1.0,1,352,351,15,True,True,23,0.9704203820526819,75,7
+tulsa signature fair at broken arrow high school:,NameLocation,1.0,1,353,352,16,False,False,49,0.7869945868775476,76,7
+: march 10th from 6-7:30pm,DateTime,2.0,1,354,351,15,True,True,26,0.9472152857120034,77,7
+okc signature fair at oklahoma city university,NameLocation,2.0,1,355,354,16,False,False,46,0.8284371950628124,78,7
+march 25th from 12-7:15pm,DateTime,3.0,1,356,351,15,True,True,25,0.977010918992617,79,7
+wichita signature fair,Name,3.0,1,357,356,16,False,False,22,0.9162763169157667,80,7
+"at derby, rose hill, and collegiate:",Location,3.0,1,360,356,16,False,False,36,0.9814189989979564,82,7
+april 8th from 6-7:30pm,DateTime,4.0,1,361,351,15,True,True,23,0.9535947665052081,83,7
+kansas city signature fair at shawnee mission west:,NameLocation,4.0,1,362,361,16,False,False,51,0.8730440271020911,84,7
+: april 13th from 6-8pm,DateTime,5.0,1,363,351,15,True,True,23,0.8989070332948597,85,7
+omaha signature fair at marian high school,NameLocation,5.0,1,364,363,16,False,False,42,0.8117624062240035,86,7
+registration coming soon,Other,,0,382,381,14,False,False,24,0.9903869087241299,94,8
+"all of the college representatives in attendance as a family at the gpacac tahlequah, ok fair!",Other,,0,405,404,18,False,False,94,0.3623318989443921,95,9
+important information for college representatives,Other,,0,422,421,13,False,False,49,0.9668699304295116,96,10
+click here,Other,,0,424,423,13,False,False,10,0.8870197803500184,97,10
+questions?,Other,,0,433,432,13,False,False,10,0.5621483973743607,98,10
+college fair chair:,Other,,0,442,441,17,False,False,19,0.44345443721041583,101,10
+jill manning -,Other,,0,443,440,16,False,False,14,0.9760964961290687,102,10
+collegefairs@gpacac.net,Other,,0,444,443,17,False,False,23,0.2557523371616781,103,10
+powered by,Other,,0,477,476,15,False,False,10,0.348444440162672,105,11
+"april 8-10, 2026",Other,,0,498,497,11,True,False,16,0.5246060050318833,106,12
+held in kansas city at the sheraton crown center,Other,,0,501,500,13,False,False,48,0.3186081732599883,107,12

@@ -1,0 +1,64 @@
+text_context,label,event_id,is_event_member,rendering_order,parent_index,depth,contains_date,contains_time,text_length,score,row_id,pred_cluster
+fall college fairs,Other,,0,104,103,14,False,False,18,0.27939264234777345,2587,1
+4 corners,Other,,0,110,109,14,False,False,9,0.36524289911274543,2589,1
+spring college fairs,Other,,0,118,117,14,False,False,20,0.1555413618408957,2591,1
+salt lake city,Other,,0,136,135,14,False,False,14,0.10656201403524233,2597,2
+rmacac bus tour,Other,,0,167,166,14,False,False,15,0.18079592825776591,2606,3
+2026 annual conference,Other,,0,178,177,14,False,False,22,0.5031300166822794,2609,4
+rising star award,Other,,0,206,205,14,False,False,17,0.2214770593764748,2617,5
+roger h. campbell award,Other,,0,212,211,14,False,False,23,0.14409965894771315,2619,5
+public school counselor relations,Other,,0,254,253,14,False,False,33,0.2497216800475562,2631,6
+rmacac logo use policy,Other,,0,332,331,13,False,False,22,0.132774777769299,2647,7
+join or renew,Other,,0,345,344,13,False,False,13,0.11426326431810496,2651,8
+fall college fairs,Other,,0,355,354,13,False,False,18,0.3174627433260567,2654,8
+4 corners,Other,,0,362,361,15,False,False,9,0.39978164432049146,2656,8
+spring college fairs,Other,,0,365,364,13,False,False,20,0.48055359073421866,2657,8
+nacac college fairs,Other,,0,387,386,13,False,False,19,0.6312864667339645,2664,9
+college fair scholarship,Other,,0,396,395,13,False,False,24,0.1566250296132985,2667,9
+2026 annual conference,Other,,0,417,416,15,False,False,22,0.19627131198217065,2673,10
+job board,Other,,0,426,425,13,False,False,9,0.4606774933256539,2676,10
+awards,Other,,0,436,435,13,False,False,6,0.1472218791366156,2679,10
+rising star award,Other,,0,440,439,15,False,False,17,0.21005219357949526,2680,10
+rmacac fall college fairs 2025,Other,,0,504,503,14,False,False,30,0.8142871489250789,2697,11
+rmacac utilizes strivescan to bring electronic student scanning to all of our college fairs. strivescan is provided with your fair registration and includes unlimited student scans and there is no additional charge for multiple reps or multiple devices.,Other,,0,507,502,13,False,False,253,0.21822160536177518,2699,11
+"for more information or questions, please contact",Other,,0,508,507,14,False,False,49,0.7255536725228635,2700,11
+rmacac w-9,Other,,0,515,514,14,False,False,10,0.29315401751245734,2704,11
+early bird registration available through 8/25,Other,,0,536,535,20,False,False,46,0.8985069612516822,2709,12
+regular registration available through 9/15,Other,,0,539,538,20,False,False,43,0.8773322738197246,2710,12
+late registration*,Other,,0,542,541,20,False,False,18,0.5780444564804055,2711,12
+rmacac salt lake city college fair,Name,1.0,1,548,545,20,False,False,34,0.44385122861061005,2712,12
+westminster university,Location,1.0,1,552,551,20,False,False,22,0.11552032334046368,2714,12
+"dolores doré eccles health, wellness, and athletic center",Location,1.0,1,554,553,20,False,False,58,0.1530625874715579,2715,12
+"1840 s 1300 e, salt lake city, ut 84105",Location,1.0,1,557,556,21,False,False,39,0.9540780901484871,2716,12
+"saturday, september 27, 2025",Date,1.0,1,558,543,18,True,False,28,0.9938140858631846,2717,12
+11:00am - 1:00pm,StartEndTime,1.0,1,561,560,20,False,True,16,0.996866499465866,2718,12
+member-,Other,,0,563,562,19,False,False,7,0.9345716200735837,2719,12
+non-member-,Other,,0,565,562,19,False,False,11,0.9411634810017564,2721,12
+member-,Other,,0,567,543,18,False,False,7,0.9698526897636541,2723,12
+non-member-,Other,,0,569,567,19,False,False,11,0.8032405289017212,2725,12
+$400 (member or non-member),Other,,0,572,571,19,False,False,27,0.9924794123282946,2727,12
+rmacac new mexico college fair @ albuquerque convention center,NameLocation,2.0,1,577,574,19,False,False,62,0.7207779463132095,2728,12
+albuquerque convention center,Location,2.0,1,581,580,19,False,False,29,0.9663767686850393,2729,12
+"401 2nd st nw, albuquerque, nm 87102",Location,2.0,1,582,580,19,False,False,36,0.9970575650025966,2730,12
+"sunday, september 28, 2025",Date,2.0,1,583,573,18,True,False,26,0.9966620966424128,2731,12
+12:00pm - 2:30pm,StartEndTime,2.0,1,585,584,19,False,True,16,0.9996394715982837,2732,12
+member-,Other,,0,587,586,19,False,False,7,0.7912615271506062,2733,12
+non-member-,Other,,0,589,586,19,False,False,11,0.8771418371466279,2735,12
+non-member-,Other,,0,596,591,19,False,False,11,0.9158063978058429,2739,12
+$400 (member or non-member),Other,,0,599,598,19,False,False,27,0.9744179246869122,2741,12
+rmacac 4 corners college fair @ bond wilson technical center,NameLocation,3.0,1,604,601,19,False,False,60,0.9662672651118979,2742,12
+bond wilson technical center,Location,3.0,1,609,608,20,False,False,28,0.6003745824903617,2743,12
+540 county rd 6580,Location,3.0,1,612,611,21,False,False,18,0.9717282027438837,2744,12
+"kirtland, nm 87417",Location,3.0,1,614,613,21,False,False,18,0.9959219373937773,2745,12
+"tuesday, september 30, 2025",Date,3.0,1,615,600,18,True,False,27,0.9961153368949568,2746,12
+1:00pm - 3:00pm,StartEndTime,3.0,1,617,616,19,False,True,15,0.9994036826688051,2747,12
+1:00pm - 3:00pm,StartEndTime,3.0,1,617,616,19,False,True,15,0.9994036826688051,2747,12
+member-,Other,,0,619,618,19,False,False,7,0.9132944099768334,2748,12
+non-member-,Other,,0,621,618,19,False,False,11,0.9157053564256686,2750,12
+member-,Other,,0,626,624,20,False,False,7,0.1643249835237136,2752,12
+non-member-,Other,,0,628,623,19,False,False,11,0.6145435688476532,2754,12
+$400 (member or non-member),Other,,0,631,630,19,False,False,27,0.9883348543369574,2756,12
+"late registrations may be excluded from printed materials, website, and/or alphabetical placement at fair.",Other,,0,634,632,14,False,False,106,0.10432588918887933,2758,12
+additional tables may be available for $100 each.,Other,,0,636,635,14,False,False,49,0.6052179873459025,2759,12
+"for more information, contact brooke gabrielli, college fairs chair at",Other,,0,641,640,14,False,False,70,0.2858893336038545,2760,12
+"april 13-15, 2026",Other,,0,684,683,9,True,False,17,0.7467613327922491,2775,13

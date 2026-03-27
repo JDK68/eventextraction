@@ -1,0 +1,140 @@
+{
+  "n_folds": 16,
+  "mean_ari": 0.3473698987871473,
+  "mean_detection": 0.9950757575757576,
+  "mean_clustering": 0.8825757575757576,
+  "mean_date_accuracy": 0.9388257575757576,
+  "mean_time_accuracy": 0.9638257575757576,
+  "mean_location_accuracy": 0.8700757575757576,
+  "mean_perfect_reconstitution": 0.7554924242424242,
+  "folds": [
+    {
+      "site": "gpacac.net_pattern_labeled",
+      "ari": 0.0,
+      "perfect_reconstitution": 1.0,
+      "date_accuracy": 1.0,
+      "time_accuracy": 1.0,
+      "location_accuracy": 1.0
+    },
+    {
+      "site": "hawaiiacac.org_pattern_labeled",
+      "ari": 0.0,
+      "perfect_reconstitution": 1.0,
+      "date_accuracy": 1.0,
+      "time_accuracy": 1.0,
+      "location_accuracy": 1.0
+    },
+    {
+      "site": "iacac.knack.com_pattern_labeled",
+      "ari": 0.0,
+      "perfect_reconstitution": 1.0,
+      "date_accuracy": 1.0,
+      "time_accuracy": 1.0,
+      "location_accuracy": 1.0
+    },
+    {
+      "site": "inacac.org_pattern_labeled",
+      "ari": 1.0,
+      "perfect_reconstitution": 1.0,
+      "date_accuracy": 1.0,
+      "time_accuracy": 1.0,
+      "location_accuracy": 1.0
+    },
+    {
+      "site": "kyacac.org_pattern_labeled",
+      "ari": 0.0,
+      "perfect_reconstitution": 0.0,
+      "date_accuracy": 1.0,
+      "time_accuracy": 1.0,
+      "location_accuracy": 0.0
+    },
+    {
+      "site": "members.sacac.org_column_labeled",
+      "ari": 0.5446194622268075,
+      "perfect_reconstitution": 0.06666666666666667,
+      "date_accuracy": 0.26666666666666666,
+      "time_accuracy": 1.0,
+      "location_accuracy": 1.0
+    },
+    {
+      "site": "members.sacac.org_pattern_labeled",
+      "ari": 0.5710098786003333,
+      "perfect_reconstitution": 0.06666666666666667,
+      "date_accuracy": 0.8,
+      "time_accuracy": 0.4666666666666667,
+      "location_accuracy": 0.9666666666666667
+    },
+    {
+      "site": "nacacnet.org_pattern_labeled",
+      "ari": 0.0,
+      "perfect_reconstitution": 0.9545454545454546,
+      "date_accuracy": 0.9545454545454546,
+      "time_accuracy": 0.9545454545454546,
+      "location_accuracy": 0.9545454545454546
+    },
+    {
+      "site": "neacac_1_pattern_labeled 1",
+      "ari": 0.0,
+      "perfect_reconstitution": 1.0,
+      "date_accuracy": 1.0,
+      "time_accuracy": 1.0,
+      "location_accuracy": 1.0
+    },
+    {
+      "site": "neacac_fall.net_pattern_labeled",
+      "ari": 0.0,
+      "perfect_reconstitution": 1.0,
+      "date_accuracy": 1.0,
+      "time_accuracy": 1.0,
+      "location_accuracy": 1.0
+    },
+    {
+      "site": "neacac_spring.net_pattern_labeled",
+      "ari": 0.0,
+      "perfect_reconstitution": 1.0,
+      "date_accuracy": 1.0,
+      "time_accuracy": 1.0,
+      "location_accuracy": 1.0
+    },
+    {
+      "site": "outofstatecollegefairs.org_pattern_labeled",
+      "ari": 0.4422890397672163,
+      "perfect_reconstitution": 1.0,
+      "date_accuracy": 1.0,
+      "time_accuracy": 1.0,
+      "location_accuracy": 1.0
+    },
+    {
+      "site": "pnacac_spring.org_pattern_labeled",
+      "ari": 1.0,
+      "perfect_reconstitution": 1.0,
+      "date_accuracy": 1.0,
+      "time_accuracy": 1.0,
+      "location_accuracy": 1.0
+    },
+    {
+      "site": "rmacac.org_pattern_labeled",
+      "ari": 0.0,
+      "perfect_reconstitution": 1.0,
+      "date_accuracy": 1.0,
+      "time_accuracy": 1.0,
+      "location_accuracy": 1.0
+    },
+    {
+      "site": "sacrao.org_column_labeled",
+      "ari": 1.0,
+      "perfect_reconstitution": 1.0,
+      "date_accuracy": 1.0,
+      "time_accuracy": 1.0,
+      "location_accuracy": 1.0
+    },
+    {
+      "site": "wacac.org_pattern_labeled",
+      "ari": 1.0,
+      "perfect_reconstitution": 0.0,
+      "date_accuracy": 1.0,
+      "time_accuracy": 1.0,
+      "location_accuracy": 0.0
+    }
+  ]
+}

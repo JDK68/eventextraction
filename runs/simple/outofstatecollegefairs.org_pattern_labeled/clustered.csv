@@ -1,0 +1,38 @@
+text_context,label,event_id,is_event_member,rendering_order,parent_index,depth,contains_date,contains_time,text_length,score,row_id,pred_cluster
+fall event calendar october 2025,Other,,0,180,179,10,True,False,32,0.4336687996464347,2462,1
+"spend a week out west ~ five days, multiple events! attend multiple in-person fairs including countywide events. our early registration deadline has been extended to saturday, .",Other,,0,183,182,10,True,False,177,0.09412825169887294,2463,1
+psat testing this month,Other,,0,207,206,12,False,False,23,0.05300290342825858,2475,2
+cosi fairs roadtrip!,Name,1.0,1,232,231,14,False,False,20,0.08631542063904327,2481,3
+valencia hs,Location,1.0,1,234,233,13,False,False,11,0.0844208305051052,2482,3
+valencia hs,Location,1.0,1,234,233,13,False,False,11,0.0844208305051052,2482,3
+8:30a-10:00a,StartEndTime,1.0,1,235,233,13,False,False,12,0.15372664280238413,2483,3
+8:30a-10:00a,StartEndTime,1.0,1,235,233,13,False,False,12,0.15372664280238413,2483,3
+11a -12:30p,StartEndTime,1.0,1,236,223,12,False,False,11,0.05179695293756496,2484,3
+11a -12:30p,StartEndTime,1.0,1,236,223,12,False,False,11,0.05179695293756496,2484,3
+el dorado hs,Location,1.0,1,237,236,13,False,False,12,0.23269315442583555,2485,3
+el dorado hs,Location,1.0,1,237,236,13,False,False,12,0.23269315442583555,2485,3
+yorba linda hs 8:30a-10:30a,TimeLocation,2.0,1,247,239,12,False,False,27,0.5021079006639035,2488,3
+esperanza hs +,Location,2.0,1,248,247,13,False,False,14,0.6749088087771636,2489,3
+esperanza hs +,Location,2.0,1,248,247,13,False,False,14,0.6749088087771636,2489,3
++ western and kennedy hs’s 8:30,TimeLocation,3.0,1,266,261,13,False,False,33,0.7038939481537393,2492,4
+savanna hs,Location,3.0,1,267,266,14,False,False,10,0.00787815058021872,2493,4
+a-10:15a,EndTime,3.0,1,269,261,13,False,False,8,0.27408238934378554,2494,4
+a-10:15a,EndTime,3.0,1,269,261,13,False,False,8,0.27408238934378554,2494,4
+: free college fair night at brea olinda hs,Other,,0,270,254,12,False,False,43,0.05748454877479011,2495,4
+just added,Other,,0,272,271,14,False,False,10,0.06034676715178832,2496,4
+countywide ocde college and career discovery fair,Name,4.0,1,282,281,16,False,False,49,0.2944250756462027,2498,4
+sold out,Other,,0,283,280,15,False,False,8,0.0687204144765184,2499,4
+9a-11:30a m,StartEndTime,4.0,1,284,273,12,False,False,11,0.0899929571519382,2500,4
+9a-11:30a m,StartEndTime,4.0,1,284,273,12,False,False,11,0.0899929571519382,2500,4
+laguna hills comm. center,Location,4.0,1,285,284,13,False,False,25,0.5413782458571934,2501,4
+ultiple orange county schools,Other,,0,286,284,13,False,False,29,0.7411480023019604,2502,4
+la county fair,Name,5.0,1,295,293,14,False,False,14,0.07048492943005591,2505,4
+bonita hs,Location,5.0,1,298,297,14,False,False,9,0.07970215233133103,2508,4
+bonita hs,Location,5.0,1,298,297,14,False,False,9,0.07970215233133103,2508,4
+9:30a-11:15a multiple la county high schools *,StartEndTime,5.0,1,302,296,13,False,False,46,0.8312150301857885,2509,4
+note location change,Other,,0,303,302,14,False,False,20,0.37725018975278335,2510,4
+"-100% refund (minus $25 processing) until 45 days out. your refund request is received on or before , . -50% refund (minus $25 processing) at less than 45 days out. your refund request is received through . -within 14 days or less, no refund is possible, but we will offer a free front-page ad on our website for requests received beginning",Other,,0,316,164,8,False,False,340,0.12805634822185585,2517,5
+"tuesday, september 2nd",Other,,0,322,316,9,True,False,22,0.047971559210266676,2521,5
+"sunday, september 28th",Other,,0,323,316,9,True,False,22,0.05552935803449489,2522,5
+"monday, september 29th.",Other,,0,325,316,9,True,False,23,0.10219026806357633,2523,5
+© 2026 california out-of-state & international college fairs. all rights reseved.,Other,,0,441,440,9,False,False,82,0.10545253547375923,2524,6

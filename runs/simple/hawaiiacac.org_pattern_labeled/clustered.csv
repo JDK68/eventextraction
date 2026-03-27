@@ -1,0 +1,26 @@
+text_context,label,event_id,is_event_member,rendering_order,parent_index,depth,contains_date,contains_time,text_length,score,row_id,pred_cluster
+"tuesday, april 14, 2026 – sunday, april 19, 2026.",Other,,0,422,421,10,True,False,51,0.3346411846086841,112,1
+"tuesday, april 14",Date,1.0,1,437,436,13,True,False,17,0.9398729419594237,117,2
+10:00 a.m. – 12:00 p.m.,StartEndTime,1.0,1,438,436,13,False,True,25,0.9985519275506995,118,2
+hawaii east,Other,,0,439,436,13,False,False,11,0.7603055738080863,119,2
+kamehameha schools hawaii keaʻau campus,Location,1.0,1,440,436,13,False,False,40,0.7049025830287318,120,2
+"wednesday, april 15",Date,2.0,1,442,441,13,True,False,19,0.5821872951907681,121,2
+10:00 a.m. – 12:00 p.m.,StartEndTime,2.0,1,443,441,13,False,True,25,0.9926368322171955,122,2
+hawaii island central,Other,,0,444,441,13,False,False,21,0.39518058869141665,123,2
+hawaii preparatory academy,Location,2.0,1,445,441,13,False,False,26,0.4877594815866241,124,2
+"thursday, april 16",Date,3.0,1,447,446,13,True,False,18,0.9862782734330975,125,2
+10:00 a.m. – 1:00 p.m.,StartEndTime,3.0,1,448,446,13,False,True,24,0.9986262433293259,126,2
+king kekaulike high school,Location,3.0,1,450,446,13,False,False,26,0.9965767167148353,128,2
+"thursday, april 16",Date,4.0,1,452,451,13,True,False,18,0.9519421929548507,129,2
+5:00 p.m. – 7:00 p.m.,StartEndTime,4.0,1,453,451,13,False,False,23,0.9970420447881645,130,2
+ūlanihakoʻi high school,Location,4.0,1,456,455,14,False,False,25,0.17605090182267827,133,2
+"friday, april 17",Date,5.0,1,458,457,13,True,False,16,0.7456352962253733,134,2
+check in – breakfast: 8:30-9:30 a.m. keynote: 9:45-10:05 a.m. sessions throughout the day closing: 6:00 p.m.,StartEndTime,5.0,1,459,457,13,False,True,110,0.6790989609237842,135,2
+annual conference and pau hana,Other,,0,460,459,14,False,False,30,0.8498949579226265,136,2
+university of hawaii maui college,Location,5.0,1,470,457,13,False,False,33,0.9873333365345228,138,2
+"saturday, april 18",Date,6.0,1,472,471,13,True,False,18,0.5330171571498743,139,2
+tbd,Time,6.0,1,473,471,13,False,False,3,0.10052925151093617,140,2
+university of hawaii west oahu,Location,6.0,1,475,471,13,False,False,30,0.7424338275683886,142,2
+"sunday, april 19",Date,7.0,1,477,476,13,True,False,16,0.7576210133401715,143,2
+tbd – morning/early afternoon,Time,7.0,1,478,476,13,False,False,31,0.6099910149358329,144,2
+tbd – honolulu,Location,7.0,1,480,476,13,False,False,16,0.9410071580036481,146,2
