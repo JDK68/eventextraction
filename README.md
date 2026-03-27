@@ -285,7 +285,7 @@ phase2/
 
 ## 📝 Citation
 ```bibtex
-@mastersthesis{eventextraction2026,
+@misc{eventextraction2026,
   authors = {Jad Kebal, Mohamed Amine Ablouh, Darine Fourar Laidi},
   title = {Event Extraction from Heterogeneous Websites using Machine Learning},
   school = {University of Ottawa},
