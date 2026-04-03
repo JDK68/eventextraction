@@ -108,11 +108,10 @@ def expand_clusters_with_nearby_fields(
         if len(nearby) == 0:
             continue
         
-        # Garde seulement les nodes courts avec labels Date/Time/Location
         field_nodes = nearby[
-            (nearby['text_length'] <= 15) &  # Courts (≤15 caractères)
-            (nearby['label'].str.contains('Date|Time|Location', case=False, na=False))
+            nearby['label'].str.contains('Date|Time|Location', case=False, na=False)
         ]
+
         
         if len(field_nodes) > 0:
             # Ajoute au cluster
@@ -120,6 +119,161 @@ def expand_clusters_with_nearby_fields(
             expanded = pd.concat([expanded, field_nodes], ignore_index=True)
     
     return expanded.sort_values('rendering_order').reset_index(drop=True)
+
+def sub_cluster_by_event_boundaries(clustered: pd.DataFrame) -> pd.DataFrame:
+    """
+    Post-traitement : découpe les méga-clusters en sous-clusters
+    en détectant les frontières d'événements.
+    
+    Logique : dans un méga-cluster, les événements suivent un patron
+    répétitif (Date → Time → Location → Date → Time → Location...).
+    Chaque fois qu'un node "date-like" apparaît après un node non-date,
+    c'est une frontière d'événement.
+    """
+    result = clustered.copy()
+    max_existing = int(result['pred_cluster'].max()) + 1
+    offset = max_existing * 1000  # Éviter les collisions d'IDs
+    
+    for cluster_id in clustered['pred_cluster'].unique():
+        mask = result['pred_cluster'] == cluster_id
+        cluster = result[mask].sort_values('rendering_order')
+        
+        if len(cluster) <= 10:
+            continue
+        
+        # Détecte les nodes "date-like" via contains_date OU contains_time
+        has_date_col = 'contains_date' in cluster.columns
+        has_time_col = 'contains_time' in cluster.columns
+        
+        if not has_date_col and not has_time_col:
+            continue
+        
+        # Compter les nodes date dans ce cluster
+        if has_date_col:
+            n_date_nodes = int(cluster['contains_date'].sum())
+        else:
+            n_date_nodes = 0
+        
+        if has_time_col:
+            n_time_nodes = int(cluster['contains_time'].sum())
+        else:
+            n_time_nodes = 0
+        
+        # Seulement si le cluster a BEAUCOUP de marqueurs date (≥3)
+        # 2 nodes date = probablement un seul événement avec sa date dupliquée
+        if n_date_nodes < 3 and n_time_nodes < 3:
+            continue
+        
+        # Choisir le signal de frontière : date en priorité, sinon time
+        use_date = n_date_nodes >= 2
+        
+        sub_id = 0
+        prev_was_boundary = True  # Le premier node démarre le premier sous-cluster
+        sub_ids = []
+        
+        for _, row in cluster.iterrows():
+            if use_date:
+                is_boundary = bool(row.get('contains_date', False))
+            else:
+                is_boundary = bool(row.get('contains_time', False))
+            
+            # Nouvelle frontière : node temporel après du contenu non-temporel
+            if is_boundary and not prev_was_boundary and len(sub_ids) > 0:
+                sub_id += 1
+            
+            sub_ids.append(sub_id)
+            prev_was_boundary = is_boundary
+        
+        # Appliquer seulement si on a découpé en 2+ sous-clusters
+        if sub_id >= 1:
+            new_ids = [offset + cluster_id * 100 + s for s in sub_ids]
+            result.loc[cluster.index, 'pred_cluster'] = new_ids
+    
+    return result
+
+def deduplicate_expanded_nodes(clustered: pd.DataFrame) -> pd.DataFrame:
+    """
+    Après sub-clustering, certains nodes dupliqués par expand se retrouvent
+    dans le mauvais sous-cluster. On garde chaque row_id/text_context
+    seulement dans le sous-cluster le plus proche (par rendering_order).
+    """
+    if 'row_id' not in clustered.columns:
+        return clustered
+    
+    result = clustered.copy()
+    
+    # Pour chaque row_id qui apparaît dans plusieurs clusters
+    for row_id, group in result.groupby('row_id'):
+        if len(group) <= 1:
+            continue
+        
+        clusters = group['pred_cluster'].unique()
+        if len(clusters) <= 1:
+            continue
+        
+        # Garder seulement dans le cluster où il est le plus "central"
+        # (le plus proche de la médiane du rendering_order du cluster)
+        best_idx = None
+        best_dist = float('inf')
+        
+        for idx, row in group.iterrows():
+            cluster_nodes = result[result['pred_cluster'] == row['pred_cluster']]
+            median_order = cluster_nodes['rendering_order'].median()
+            dist = abs(row['rendering_order'] - median_order)
+            if dist < best_dist:
+                best_dist = dist
+                best_idx = idx
+        
+        # Supprimer toutes les copies sauf la meilleure
+        drop_indices = [i for i in group.index if i != best_idx]
+        result = result.drop(drop_indices)
+    
+    return result.reset_index(drop=True)
+
+def merge_tiny_subclusters(clustered: pd.DataFrame, min_size: int = 3) -> pd.DataFrame:
+    """
+    Fusionne les sous-clusters trop petits avec leur voisin le plus proche
+    (par rendering_order). Évite les fragments orphelins.
+    """
+    result = clustered.copy()
+    
+    cluster_sizes = result.groupby('pred_cluster').size()
+    tiny_clusters = cluster_sizes[cluster_sizes < min_size].index.tolist()
+    
+    if not tiny_clusters:
+        return result
+    
+    for tiny_id in tiny_clusters:
+        tiny_mask = result['pred_cluster'] == tiny_id
+        if tiny_mask.sum() == 0:
+            continue
+        
+        tiny_nodes = result[tiny_mask]
+        tiny_center = tiny_nodes['rendering_order'].median()
+        
+        # Trouver le cluster voisin le plus proche
+        other_clusters = result[~tiny_mask].groupby('pred_cluster')['rendering_order'].median()
+        
+        if len(other_clusters) == 0:
+            continue
+        
+        distances = (other_clusters - tiny_center).abs()
+        nearest_cluster = distances.idxmin()
+        
+        # GARDE DE SÉCURITÉ : ne pas fusionner si ça combinerait
+        # trop de signaux temporels (= probablement 2 événements distincts)
+        if 'contains_date' in result.columns:
+            nearest_nodes = result[result['pred_cluster'] == nearest_cluster]
+            combined_dates = (
+                int(tiny_nodes['contains_date'].sum()) +
+                int(nearest_nodes['contains_date'].sum())
+            )
+            if combined_dates > 2:
+                continue  # Trop de dates → ce sont 2 événements, pas 1
+        
+        result.loc[tiny_mask, 'pred_cluster'] = nearest_cluster
+    
+    return result
 
 def remove_obvious_noise(nodes: pd.DataFrame) -> pd.DataFrame:
     """
@@ -226,20 +380,32 @@ def evaluate_end_to_end_extraction(
 def extract_and_validate_fields(
     clustered: pd.DataFrame,
     ground_truth: pd.DataFrame,
-) -> Dict[str, float]:
+) -> dict:
     """
-    FULL reconstitution with MULTI-CLUSTER extraction.
+    Validate event extraction with STRICT clustering requirement.
     
-    When an event is split across multiple clusters (bad clustering),
-    we extract fields from ALL clusters containing event nodes.
+    An event achieves perfect reconstitution ONLY if:
+    1. At least one node detected in top-K
+    2. All detected nodes in the same cluster
+    3. That cluster contains ONLY nodes from this event (NEW - STRICT CHECK)
+    4. ≥33% of expected Date nodes extracted
+    5. ≥33% of expected Time nodes extracted  
+    6. ≥33% of expected Location nodes extracted
     """
-    results = []
+    all_event_ids = ground_truth['event_id'].dropna().unique()
+    n_events = len(all_event_ids)
     
-    # For each ground truth event
-    for event_id in ground_truth['event_id'].dropna().unique():
+    detection_success = 0
+    clustering_success = 0
+    date_success = 0
+    time_success = 0
+    location_success = 0
+    perfect_success = 0
+    
+    for event_id in all_event_ids:
         gt_event = ground_truth[ground_truth['event_id'] == event_id]
         
-        # Match by row_id or text_context
+        # Match detected nodes - check both row_id and text_context for compatibility
         if 'row_id' in clustered.columns and 'row_id' in gt_event.columns:
             detected_nodes = clustered[clustered['row_id'].isin(gt_event['row_id'])]
         else:
@@ -247,150 +413,110 @@ def extract_and_validate_fields(
                 clustered['text_context'].isin(gt_event['text_context'])
             ]
         
-        n_detected = len(detected_nodes)
-        
-        # Event not detected at all
-        if n_detected == 0:
-            results.append({
-                'event_id': event_id,
-                'detected': False,
-                'clustered': False,
-                'date_correct': False,
-                'time_correct': False,
-                'location_correct': False,
-                'perfect': False,
-            })
+        # 1. Detection check
+        detected = len(detected_nodes) > 0
+        if detected:
+            detection_success += 1
+        else:
+            # If not detected, skip other checks
             continue
         
-        # Check clustering
-        pred_clusters = detected_nodes['pred_cluster'].unique()
-        is_well_clustered = len(pred_clusters) == 1
+        # 2. Clustering check - all nodes in same cluster
+        clusters = detected_nodes['pred_cluster'].unique()
+        all_in_same_cluster = len(clusters) == 1
         
-        # ========== EXTRACT FROM ALL CLUSTERS (not just main) ==========
-        # Get ALL nodes from ALL clusters containing this event
-        all_cluster_ids = detected_nodes['pred_cluster'].unique()
-        all_cluster_nodes = clustered[
-            clustered['pred_cluster'].isin(all_cluster_ids)
-        ].copy()
+        if not all_in_same_cluster:
+            # Nodes split across multiple clusters - clustering failed
+            continue
         
-        # Extract ALL Date nodes from all clusters
-        date_extracted = all_cluster_nodes[
-            all_cluster_nodes['label'].str.contains('Date', case=False, na=False)
-        ]
-        extracted_date_texts = set(
-            date_extracted['text_context'].str.strip().str.lower()
-        )
-        
-        # Extract ALL Time nodes from all clusters
-        time_extracted = all_cluster_nodes[
-            all_cluster_nodes['label'].str.contains('Time', case=False, na=False)
-        ]
-        extracted_time_texts = set(
-            time_extracted['text_context'].str.strip().str.lower()
-        )
-        
-        # Extract ALL Location nodes from all clusters
-        location_extracted = all_cluster_nodes[
-            all_cluster_nodes['label'].str.contains('Location', case=False, na=False)
-        ]
-        extracted_location_texts = set(
-            location_extracted['text_context'].str.strip().str.lower()
-        )
-        
-        # ========== GROUND TRUTH SETS ==========
-        
-        gt_date = gt_event[gt_event['label'].str.contains('Date', case=False, na=False)]
-        gt_date_texts = set(gt_date['text_context'].str.strip().str.lower())
-        
-        gt_time = gt_event[gt_event['label'].str.contains('Time', case=False, na=False)]
-        gt_time_texts = set(gt_time['text_context'].str.strip().str.lower())
-        
-        gt_location = gt_event[gt_event['label'].str.contains('Location', case=False, na=False)]
-        gt_location_texts = set(gt_location['text_context'].str.strip().str.lower())
-        
-        # ========== SET-BASED VALIDATION ==========
-        
-        date_correct = False
-        time_correct = False
-        location_correct = False
-        
-        # Date validation
-        if len(gt_date_texts) > 0:
-            # All GT dates found OR at least 50% overlap
-            if gt_date_texts.issubset(extracted_date_texts):
-                date_correct = True
-            elif len(extracted_date_texts) > 0:
-                overlap = len(gt_date_texts & extracted_date_texts)
-                required = len(gt_date_texts)
-                if overlap / required >= 0.33:
-                    date_correct = True
+        # 3. STRICT CHECK: Does this cluster contain ONLY nodes from this event?
+        cluster_id = clusters[0]
+        all_nodes_in_cluster = clustered[clustered['pred_cluster'] == cluster_id]
+
+        # Find annotated ground-truth nodes whose row_id/text_context
+        # appears anywhere in this cluster
+        if 'row_id' in all_nodes_in_cluster.columns and 'row_id' in ground_truth.columns:
+            annotated_in_cluster = ground_truth[
+                ground_truth['row_id'].isin(all_nodes_in_cluster['row_id'])
+            ]
         else:
-            date_correct = True
-        
-        # Time validation
-        if len(gt_time_texts) > 0:
-            if gt_time_texts.issubset(extracted_time_texts):
-                time_correct = True
-            elif len(extracted_time_texts) > 0:
-                overlap = len(gt_time_texts & extracted_time_texts)
-                required = len(gt_time_texts)
-                if overlap / required >= 0.33:
-                    time_correct = True
-        else:
-            time_correct = True
-        
-        # Location validation
-        if len(gt_location_texts) > 0:
-            if gt_location_texts.issubset(extracted_location_texts):
-                location_correct = True
-            elif len(extracted_location_texts) > 0:
-                overlap = len(gt_location_texts & extracted_location_texts)
-                required = len(gt_location_texts)
-                if overlap / required >= 0.33:
-                    location_correct = True
-        else:
-            location_correct = True
-        
-        # Perfect reconstitution = ALL correct
-        is_perfect = (
-            n_detected > 0 and
-            is_well_clustered and
-            date_correct and
-            time_correct and
-            location_correct
+            annotated_in_cluster = ground_truth[
+                ground_truth['text_context'].isin(all_nodes_in_cluster['text_context'])
+            ]
+
+        # All annotated nodes in this cluster must belong to THIS event only
+        cluster_event_ids = annotated_in_cluster['event_id'].dropna().unique()
+        cluster_is_exclusive = (
+            len(cluster_event_ids) == 1
+            and cluster_event_ids[0] == event_id
         )
+
+        if not cluster_is_exclusive:
+            continue
+        clustering_success += 1
         
-        results.append({
-            'event_id': event_id,
-            'detected': n_detected > 0,
-            'clustered': is_well_clustered,
-            'date_correct': date_correct,
-            'time_correct': time_correct,
-            'location_correct': location_correct,
-            'perfect': is_perfect,
-        })
-    
-    if len(results) == 0:
-        return {
-            'n_events': 0,
-            'detection_rate': 0.0,
-            'clustering_rate': 0.0,
-            'date_accuracy': 0.0,
-            'time_accuracy': 0.0,
-            'location_accuracy': 0.0,
-            'perfect_reconstitution_rate': 0.0,
-        }
-    
-    df_results = pd.DataFrame(results)
+        # 4-6. Field extraction checks (using ground truth labels)
+        # Extract from this cluster ONLY (since we know it's exclusive)
+        
+        # Date check
+        gt_dates = gt_event[gt_event['label'].str.contains('Date', case=False, na=False)]
+        if len(gt_dates) > 0:
+            extracted_dates = all_nodes_in_cluster[
+                all_nodes_in_cluster['label'].str.contains('Date', case=False, na=False)
+            ]
+            gt_date_texts = set(gt_dates['text_context'].str.strip().str.lower())
+            ext_date_texts = set(extracted_dates['text_context'].str.strip().str.lower())
+            overlap = len(gt_date_texts & ext_date_texts)
+            date_ok = overlap >= max(1, len(gt_date_texts) * 0.33)
+        else:
+            date_ok = True  # No dates expected
+        
+        # Time check
+        gt_times = gt_event[gt_event['label'].str.contains('Time', case=False, na=False)]
+        if len(gt_times) > 0:
+            extracted_times = all_nodes_in_cluster[
+                all_nodes_in_cluster['label'].str.contains('Time', case=False, na=False)
+            ]
+            gt_time_texts = set(gt_times['text_context'].str.strip().str.lower())
+            ext_time_texts = set(extracted_times['text_context'].str.strip().str.lower())
+            overlap = len(gt_time_texts & ext_time_texts)
+            time_ok = overlap >= max(1, len(gt_time_texts) * 0.33)
+        else:
+            time_ok = True  # No times expected
+        
+        # Location check
+        gt_locs = gt_event[gt_event['label'].str.contains('Location', case=False, na=False)]
+        if len(gt_locs) > 0:
+            extracted_locs = all_nodes_in_cluster[
+                all_nodes_in_cluster['label'].str.contains('Location', case=False, na=False)
+            ]
+            gt_loc_texts = set(gt_locs['text_context'].str.strip().str.lower())
+            ext_loc_texts = set(extracted_locs['text_context'].str.strip().str.lower())
+            overlap = len(gt_loc_texts & ext_loc_texts)
+            location_ok = overlap >= max(1, len(gt_loc_texts) * 0.33)
+        else:
+            location_ok = True  # No locations expected
+        
+        # Update success counters
+        if date_ok:
+            date_success += 1
+        if time_ok:
+            time_success += 1
+        if location_ok:
+            location_success += 1
+        
+        # Perfect reconstitution: all checks passed
+        if date_ok and time_ok and location_ok:
+            perfect_success += 1
     
     return {
-        'n_events': len(df_results),
-        'detection_rate': df_results['detected'].mean(),
-        'clustering_rate': df_results['clustered'].mean(),
-        'date_accuracy': df_results['date_correct'].mean(),
-        'time_accuracy': df_results['time_correct'].mean(),
-        'location_accuracy': df_results['location_correct'].mean(),
-        'perfect_reconstitution_rate': df_results['perfect'].mean(),
+        'n_events': n_events,
+        'detection_rate': detection_success / n_events if n_events > 0 else 0,
+        'clustering_rate': clustering_success / n_events if n_events > 0 else 0,
+        'date_accuracy': date_success / n_events if n_events > 0 else 0,
+        'time_accuracy': time_success / n_events if n_events > 0 else 0,
+        'location_accuracy': location_success / n_events if n_events > 0 else 0,
+        'perfect_reconstitution_rate': perfect_success / n_events if n_events > 0 else 0,
     }
 
 def print_sample_extractions(
@@ -716,14 +842,33 @@ def train_simple_pipeline(config_path: str = "config.yaml") -> Dict[str, Any]:
                 gap_depth=2,
             )
             
+            # Si un cluster est trop gros, re-clusteriser plus serré
+            max_size = clustered.groupby('pred_cluster').size().max()
+            if max_size > 15:
+                clustered = unified_clustering(
+                    top_k_clean,
+                    gap_order=5,
+                    gap_parent=4,
+                    gap_depth=1,
+                )
+            
             # POST-PROCESSING: Expand clusters with nearby short Date/Time/Location nodes
             # This captures nodes like "7", "mar", "thu" that scored poorly
             clustered = expand_clusters_with_nearby_fields(
                 clustered=clustered,
-                all_scored_nodes=df_test,  # All nodes with scores (not just top-K)
-                window=5,  # Look ±5 rendering_order positions
+                all_scored_nodes=df_test,
+                window=8,
             )
             
+            # POST-PROCESSING 2: Découpe les méga-clusters en sous-clusters
+            clustered = sub_cluster_by_event_boundaries(clustered)
+
+            # POST-PROCESSING 3: Déduplique les nodes cross-cluster
+            clustered = deduplicate_expanded_nodes(clustered)
+
+            # POST-PROCESSING 4: Fusionne les micro-fragments
+            clustered = merge_tiny_subclusters(clustered, min_size=3)
+
             # Evaluate clustering (ARI)
             cluster_eval = clustered[clustered['event_id'].notna()].copy()
             
