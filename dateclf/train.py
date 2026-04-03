@@ -393,6 +393,127 @@ def extract_and_validate_fields(
         'perfect_reconstitution_rate': df_results['perfect'].mean(),
     }
 
+def print_sample_extractions(
+    clustered: pd.DataFrame,
+    ground_truth: pd.DataFrame,
+    num_samples: int = 3,
+) -> None:
+    """
+    Print sample event extractions to show concrete results.
+    """
+    print("\n" + "="*60)
+    print("SAMPLE EXTRACTED EVENTS")
+    print("="*60)
+    
+    event_ids = sorted(ground_truth['event_id'].dropna().unique())[:num_samples]
+    
+    for event_id in event_ids:
+        gt_event = ground_truth[ground_truth['event_id'] == event_id]
+        
+        # Match detected nodes
+        if 'row_id' in clustered.columns and 'row_id' in gt_event.columns:
+            detected_nodes = clustered[clustered['row_id'].isin(gt_event['row_id'])]
+        else:
+            detected_nodes = clustered[
+                clustered['text_context'].isin(gt_event['text_context'])
+            ]
+        
+        print(f"\n{'─'*60}")
+        print(f"Event #{int(event_id)}")
+        print(f"{'─'*60}")
+        
+        # Show clustering status
+        if len(detected_nodes) > 0:
+            clusters = detected_nodes['pred_cluster'].unique()
+            if len(clusters) == 1:
+                print(f"Clustering: ✅ All nodes in cluster #{int(clusters[0])}")
+            else:
+                print(f"Clustering: ⚠️  Split across {len(clusters)} clusters: {[int(c) for c in clusters]}")
+        else:
+            print("Clustering: ❌ No nodes detected")
+        
+        # Extract from all clusters
+        if len(detected_nodes) > 0:
+            all_cluster_ids = detected_nodes['pred_cluster'].unique()
+            all_cluster_nodes = clustered[
+                clustered['pred_cluster'].isin(all_cluster_ids)
+            ]
+        else:
+            all_cluster_nodes = pd.DataFrame()
+        
+        # DATE
+        print("\n DATE:")
+        gt_dates = gt_event[gt_event['label'].str.contains('Date', case=False, na=False)]
+        if len(gt_dates) > 0:
+            print(f"  Expected: {list(gt_dates['text_context'].values)}")
+            extracted_dates = all_cluster_nodes[
+                all_cluster_nodes['label'].str.contains('Date', case=False, na=False)
+            ]
+            if len(extracted_dates) > 0:
+                print(f"  Extracted: {list(extracted_dates['text_context'].values)}")
+                
+                gt_set = set(gt_dates['text_context'].str.strip().str.lower())
+                ext_set = set(extracted_dates['text_context'].str.strip().str.lower())
+                overlap = len(gt_set & ext_set)
+                if overlap > 0:
+                    print(f"  ✅ Match: {overlap}/{len(gt_set)}")
+                else:
+                    print(f"  ❌ No match")
+            else:
+                print(f"  Extracted: []")
+                print(f"  ❌ Nothing extracted")
+        else:
+            print(f"  (none expected)")
+        
+        # TIME
+        print("\n TIME:")
+        gt_times = gt_event[gt_event['label'].str.contains('Time', case=False, na=False)]
+        if len(gt_times) > 0:
+            print(f"  Expected: {list(gt_times['text_context'].values)}")
+            extracted_times = all_cluster_nodes[
+                all_cluster_nodes['label'].str.contains('Time', case=False, na=False)
+            ]
+            if len(extracted_times) > 0:
+                print(f"  Extracted: {list(extracted_times['text_context'].values)}")
+                
+                gt_set = set(gt_times['text_context'].str.strip().str.lower())
+                ext_set = set(extracted_times['text_context'].str.strip().str.lower())
+                overlap = len(gt_set & ext_set)
+                if overlap > 0:
+                    print(f"  ✅ Match: {overlap}/{len(gt_set)}")
+                else:
+                    print(f"  ❌ No match")
+            else:
+                print(f"  Extracted: []")
+                print(f"  ❌ Nothing extracted")
+        else:
+            print(f"  (none expected)")
+        
+        # LOCATION
+        print("\n LOCATION:")
+        gt_locs = gt_event[gt_event['label'].str.contains('Location', case=False, na=False)]
+        if len(gt_locs) > 0:
+            print(f"  Expected: {list(gt_locs['text_context'].values)}")
+            extracted_locs = all_cluster_nodes[
+                all_cluster_nodes['label'].str.contains('Location', case=False, na=False)
+            ]
+            if len(extracted_locs) > 0:
+                print(f"  Extracted: {list(extracted_locs['text_context'].values)}")
+                
+                gt_set = set(gt_locs['text_context'].str.strip().str.lower())
+                ext_set = set(extracted_locs['text_context'].str.strip().str.lower())
+                overlap = len(gt_set & ext_set)
+                if overlap > 0:
+                    print(f"  ✅ Match: {overlap}/{len(gt_set)}")
+                else:
+                    print(f"  ❌ No match")
+            else:
+                print(f"  Extracted: []")
+                print(f"  ❌ Nothing extracted")
+        else:
+            print(f"  (none expected)")
+    
+    print(f"\n{'='*60}\n")
 
 def train_simple_pipeline(config_path: str = "config.yaml") -> Dict[str, Any]:
     """
@@ -625,6 +746,8 @@ def train_simple_pipeline(config_path: str = "config.yaml") -> Dict[str, Any]:
                 print(f"  Time accuracy: {e2e['time_accuracy']:.1%}")
                 print(f"  Location accuracy: {e2e['location_accuracy']:.1%}")
                 print(f"  🎯 PERFECT RECONSTITUTION: {e2e['perfect_reconstitution_rate']:.1%}")
+
+                print_sample_extractions(clustered, gt_events, num_samples=3)
             else:
                 e2e = {
                     'n_events': 0,
