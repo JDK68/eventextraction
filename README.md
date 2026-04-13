@@ -225,7 +225,9 @@ git push origin HEAD:main --force
 ## Authors
 
 **Jad Kebal** — Computer Science Honours BSc, University of Ottawa.
+
 **Mohamed Amine Ablouh** — Computer Science Honours BSc, University of Ottawa.
+
 **Darine Fourar Laidi** — Computer Science Honours BSc, University of Ottawa.
 
 Supervised capstone project — Applied ML/AI specialization with emphasis on NLP and web information extraction.
