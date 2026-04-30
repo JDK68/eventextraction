@@ -961,7 +961,18 @@ def train_simple_pipeline(config_path: str = "config.yaml") -> Dict[str, Any]:
     print(f"  Time accuracy: {np.mean(time_accs):.1%}±{np.std(time_accs):.1%}")
     print(f"  Location accuracy: {np.mean(location_accs):.1%}±{np.std(location_accs):.1%}")
     print(f"\n🎯 PERFECT RECONSTITUTION RATE: {np.mean(perfect_recon):.1%}±{np.std(perfect_recon):.1%}")
-    
+
+    metrics_at_k: Dict[str, Any] = {}
+    for k in ks:
+        ps = [r.metrics_at_k[k]['precision'] for r in all_results]
+        rs = [r.metrics_at_k[k]['recall'] for r in all_results]
+        metrics_at_k[str(k)] = {
+            'precision_mean': float(np.mean(ps)),
+            'precision_std':  float(np.std(ps)),
+            'recall_mean':    float(np.mean(rs)),
+            'recall_std':     float(np.std(rs)),
+        }
+
     summary = {
         'n_folds': len(all_results),
         'mean_ari': float(np.mean(aris)),
@@ -971,15 +982,7 @@ def train_simple_pipeline(config_path: str = "config.yaml") -> Dict[str, Any]:
         'mean_time_accuracy': float(np.mean(time_accs)),
         'mean_location_accuracy': float(np.mean(location_accs)),
         'mean_perfect_reconstitution': float(np.mean(perfect_recon)),
-        'metrics_at_k': {
-            str(k): {
-                'precision_mean': float(np.mean([r.metrics_at_k[k]['precision'] for r in all_results])),
-                'precision_std':  float(np.std( [r.metrics_at_k[k]['precision'] for r in all_results])),
-                'recall_mean':    float(np.mean([r.metrics_at_k[k]['recall']    for r in all_results])),
-                'recall_std':     float(np.std( [r.metrics_at_k[k]['recall']    for r in all_results])),
-            }
-            for k in ks
-        },
+        'metrics_at_k': metrics_at_k,
         'folds': [
             {
                 'site': r.site,
