@@ -971,6 +971,15 @@ def train_simple_pipeline(config_path: str = "config.yaml") -> Dict[str, Any]:
         'mean_time_accuracy': float(np.mean(time_accs)),
         'mean_location_accuracy': float(np.mean(location_accs)),
         'mean_perfect_reconstitution': float(np.mean(perfect_recon)),
+        'metrics_at_k': {
+            str(k): {
+                'precision_mean': float(np.mean([r.metrics_at_k[k]['precision'] for r in all_results])),
+                'precision_std':  float(np.std( [r.metrics_at_k[k]['precision'] for r in all_results])),
+                'recall_mean':    float(np.mean([r.metrics_at_k[k]['recall']    for r in all_results])),
+                'recall_std':     float(np.std( [r.metrics_at_k[k]['recall']    for r in all_results])),
+            }
+            for k in ks
+        },
         'folds': [
             {
                 'site': r.site,
